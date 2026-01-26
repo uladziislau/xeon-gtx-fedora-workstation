@@ -142,7 +142,7 @@ LIBVA_DRIVER_NAME=nvidia
 
 ## 🐛 Проблемы и вопросы
 
-Нашли проблему или есть вопрос? [Создайте issue](https://github.com/uladziislau/zen-browser-workstation-configuration/issues/new) или начните [обсуждение](https://github.com/uladziislau/zen-browser-workstation-configuration/discussions).
+Нашли проблему или есть вопрос? [Создайте issue](https://github.com/uladziislau/xeon-gtx-fedora-workstation/issues/new) или начните [обсуждение](https://github.com/uladziislau/xeon-gtx-fedora-workstation/discussions).
 
 ---
 

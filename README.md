@@ -142,7 +142,7 @@ Encountering issues? Check the **[Troubleshooting Guide](docs/en/troubleshooting
 
 ## 🐛 Issues & Questions
 
-Found a problem or have a question? [Open an issue](https://github.com/uladziislau/zen-browser-workstation-configuration/issues/new) or start a [discussion](https://github.com/uladziislau/zen-browser-workstation-configuration/discussions).
+Found a problem or have a question? [Open an issue](https://github.com/uladziislau/xeon-gtx-fedora-workstation/issues/new) or start a [discussion](https://github.com/uladziislau/xeon-gtx-fedora-workstation/discussions).
 
 ---
 

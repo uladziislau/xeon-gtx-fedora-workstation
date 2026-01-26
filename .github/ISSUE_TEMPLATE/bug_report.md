@@ -39,4 +39,4 @@ What actually happened.
 
 - Error messages or logs
 - Screenshots (if applicable)
-- Did you check the [Troubleshooting Guide](https://github.com/uladziislau/zen-browser-workstation-configuration/blob/main/docs/en/troubleshooting/index.md)?
+- Did you check the [Troubleshooting Guide](https://github.com/uladziislau/xeon-gtx-fedora-workstation/blob/main/docs/en/troubleshooting/index.md)?
