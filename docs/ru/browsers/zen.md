@@ -1,73 +1,42 @@
-# 🔴 Zen Browser: God Mode Configuration
+# 🔴 Zen Browser: конфигурация v21 (XEON WAYLAND PERFECTED)
 
-> Zen (форк Firefox) используется как **основной браузер**. Он идеально интегрируется с Wayland, поддерживает HDR и цветовые профили, но имеет проблемы с производительностью Canvas (Яндекс.Карты) на NVIDIA.
+> Zen (форк Firefox) — **основной браузер**. Профиль заточен под Wayland, проприетарный NVIDIA, 165 Гц, 64 ГБ ОЗУ и Xeon с большим числом потоков: WebRender, цвет, сеть и кэш согласованы друг с другом.
 
-**📂 [Configuration Files →](../../configs/zen-browser/)** | **📖 [Documentation Index →](../README.md)**
+**📂 [Файлы конфигурации →](../../../configs/zen-browser/)** | **📖 [Индекс документации →](../README.md)** | **🇬🇧 [English →](../../en/browsers/zen.md)**
 
 ---
 
-## 1. Проблема: Яндекс.Карты и Лаги
-Движок Gecko (Firefox) исторически плохо дружит с проприетарными драйверами NVIDIA на Linux. Мы перепробовали все комбинации.
+## 1. Зачем отдельный профиль и что изменилось в v21
 
-*   **WARP (Программный рендер):** Вызывал дикие тормоза и нагрузку на CPU. Мы его **запретили** (`gfx.webrender.use-warp = false`).
-*   **Изоляция GPU:** На драйвере 580 процесс GPU часто падал. Решение: отключить изоляцию (`layers.gpu-process.enabled = false`), заставив браузер рисовать всё в основном потоке, но силами GPU.
+Раньше в документации фигурировала стратегия «отключить GPU process» под старые глюсы драйвера. В **v21** выбран другой баланс: **GPU process включён**, включены **обходы багов драйвера** (`gfx.work-around-driver-bugs`), отключена **делегация композитинга в KWin** (`gfx.webrender.compositor`), чтобы снизить риск `Wayland protocol error 7: dmabufs failed` на NVIDIA. WARP по-прежнему запрещён — рендер на CPU нас не устраивает.
 
-## 2. user.js Configuration
+Коротко по блокам:
 
-Готовый конфигурационный файл находится в репозитории:
-- **[user.js](../../configs/zen-browser/user.js)** - English comments
-- **[user.ru.js](../../configs/zen-browser/user.ru.js)** - Russian comments
+* **Графика:** WebRender, принудительное ускорение, WebGL на GPU, до 16 потоков на геометрию WebRender.
+* **Экран:** синхронизация с 165 Гц, vsync Wayland, частичный present отключён (меньше артефактов при скролле на NVIDIA).
+* **Видео:** VA-API → NVDEC, без агрессивного форсирования кодеков; **AV1 отключён** (`media.av1.enabled`), чтобы YouTube отдавал **VP9** (GTX 1660 SUPER не декодирует AV1 в железе). Для стабильности на проприетарном стеке используется безопасная схема копирования кадров, RDD-sandbox ослаблен там, где это нужно драйверу.
+* **Память и сеть:** кэш в RAM, лимиты медиабуферов, HTTP/3, отключены tailing/pacing там, где нужен параллелизм.
 
-Скопируйте файл в папку профиля браузера (`about:support` -> Profile Folder).
+Итог: Zen **не обязан** проигрывать тяжёлым Canvas/WebGL-сайтам Chromium по плавности (движки разные), но профиль v21 — это уже цельная «станционная» настройка, а не набор разрозненных костылей.
 
-    // =============================================================================
-    // ZEN BROWSER CONFIG v19 (GOD MODE)
-    // =============================================================================
+---
 
-    // --- ГРАФИКА И NVIDIA ---
-    user_pref("gfx.webrender.all", true);
-    user_pref("gfx.webrender.enabled", true);
-    user_pref("layers.acceleration.force-enabled", true);
-    user_pref("widget.dmabuf.force-enabled", true);        // Критично для Wayland
-    user_pref("gfx.webrender.compositor", false);          // Выкл. нативный композитор (фикс статтеров)
-    
-    // --- УБИЙЦА WARP ---
-    user_pref("gfx.webrender.use-warp", false); 
-    user_pref("gfx.webrender.software", false);
-    user_pref("gfx.webrender.fallback.software", false);
+## 2. Файлы `user.js`
 
-    // --- HDR И ЦВЕТ ---
-    user_pref("gfx.webrender.10bit-format", true);
-    user_pref("gfx.color_management.native_srgb", true);
-    user_pref("gfx.color_management.mode", 1);
+Готовые конфиги в репозитории (скопировать в каталог профиля: `about:support` → **Folder**):
 
-    // --- ЯНДЕКС.КАРТЫ (CANVAS) ---
-    user_pref("gfx.canvas.accelerated", true);
-    user_pref("gfx.canvas.accelerated.async", true);       // Асинхронный холст
-    user_pref("gfx.canvas.accelerated.cache-items", 32768);
-    user_pref("gfx.canvas.accelerated.cache-size", 512);
+* **[user.js](../../../configs/zen-browser/user.js)** — комментарии на английском  
+* **[user.ru.js](../../../configs/zen-browser/user.ru.js)** — комментарии на русском  
 
-    // --- ВИДЕО (VA-API) ---
-    user_pref("media.ffmpeg.vaapi.enabled", true);
-    user_pref("media.hardware-video-decoding.force-enabled", true);
-    user_pref("media.ffvpx.enabled", false);               // Только GPU декодинг
-    user_pref("media.prefer-non-ffvpx", true);
-    user_pref("media.rdd-ffmpeg.enabled", true);
+Оба файла задают **один и тот же набор** `user_pref`; отличается только язык комментариев. Полный список предпочтений смотрите в репозитории — в документации дублировать сотни строк не имеет смысла.
 
-    // --- XEON 36-THREADS ---
-    user_pref("dom.ipc.processCount", 32);                 // 32 процесса контента
-    user_pref("dom.ipc.processCount.webIsolated", 32);
-    user_pref("javascript.options.parallel_parsing", true);
-    user_pref("image.parallel.decode.limit.multiplier", 9);
+---
 
-    // --- 64GB RAM ---
-    user_pref("browser.cache.disk.enable", false);         // Отключаем диск
-    user_pref("browser.cache.memory.enable", true);
-    user_pref("browser.cache.memory.capacity", 10485760);  // 10 ГБ кэша в RAM
+## 3. Роли браузеров
 
-## 3. Резюме
-С этим конфигом Zen:
-*   Отображает идеальные шрифты (нативный Wayland).
-*   Показывает HDR контент.
-*   Мгновенно открывает страницы из RAM-кэша.
-*   **НО:** Яндекс.Карты могут всё еще подлагивать (особенность движка). Для них используем Thorium.
+| Задача | Рекомендация |
+|--------|----------------|
+| Повседневный серфинг, приватность, HDR/цвет, единый профиль Firefox | **Zen** |
+| Тяжёлые карты/WebGL (например Яндекс.Карты), сервисы, где Blink ощутимо плавнее | **Thorium** (см. [thorium.md](thorium.md)) |
+
+С этим конфигом Zen даёт предсказуемую графику и видео под ваш стек; для «движково-тяжёлых» страниц разумно держать второй браузер с Chromium-стеком.
