@@ -47,6 +47,12 @@ zen_profile=$(find "$HOME/.zen" "$HOME/.local/share/zen" "$HOME/.mozilla/zen" -n
 [[ -n "$zen_profile" ]] && check "Zen user.js" "found at $zen_profile" || warn "Zen Browser user.js not found"
 
 echo ""
+echo "=== Thorium Browser ==="
+[[ -f "$HOME/.config/thorium-flags.conf" ]] && check "Thorium flags file" "found at $HOME/.config/thorium-flags.conf" || warn "Thorium ~/.config/thorium-flags.conf not found"
+thorium_desktop=$(find "$HOME/.local/share/applications" -maxdepth 1 \( -iname '*thorium*.desktop' -o -iname '*Thorium*.desktop' \) 2>/dev/null | head -1)
+[[ -n "$thorium_desktop" ]] && check "Thorium user .desktop" "found at $thorium_desktop" || warn "No user Thorium .desktop override (optional if flags are set elsewhere)"
+
+echo ""
 echo "=== System Info ==="
 check "Kernel" "$(uname -r)"
 check "NVIDIA Driver" "$(nvidia-smi --query-gpu=driver_version --format=csv,noheader 2>/dev/null || echo 'not found')"

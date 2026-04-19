@@ -38,38 +38,22 @@ Shared goals on your system:
 
 ---
 
-## 3. Example flags (`~/.config/thorium-flags.conf`)
+## 3. Repository flag lists and installation
 
-Some RPM builds ignore standard paths; flags are often embedded in a **`.desktop`** file or generated from a small config. Below is a **starting point** to validate on your exact browser build and driver.
+Canonical lists (one line = one argv token; lines starting with `#` are **not** passed through):
 
-```bash
-# --- Graphics (ANGLE / Wayland) ---
---ozone-platform-hint=auto
---ozone-platform=wayland
---use-gl=angle
---use-angle=gl
---ignore-gpu-blocklist
-# Caution: may reduce stability; remove and compare if you see glitches
---disable-gpu-driver-bug-workarounds
+* **[flags.conf](../../../configs/thorium-browser/flags.conf)** — English comments; consumed by [`scripts/optimize.sh`](../../../scripts/optimize.sh).
+* **[flags.ru.conf](../../../configs/thorium-browser/flags.ru.conf)** — same active flags, Russian comments for reading.
 
-# --- Video (VA-API, no AV1 in hardware) ---
---enable-features=VaapiVideoDecoder,VaapiVideoDecodeLinuxGL
---disable-features=UseChromeOSDirectVideoDecoder,Av1VideoDecoder
+The default **active** block is a **stable baseline** (Wayland, ANGLE, VA-API, AV1 disabled, rasterization). More aggressive options (`--disable-gpu-driver-bug-workarounds`, `--enable-zero-copy`, HDR) stay **commented out**—uncomment after you validate on your driver.
 
-# --- Performance ---
---enable-zero-copy
---enable-gpu-rasterization
---num-raster-threads=4
---force-gpu-mem-available-mb=4096
-
-# --- HDR (experimental; validate with content and display) ---
---force-color-profile=hdr10
---enable-hdr
-```
+**Install:** `sudo ./scripts/optimize.sh` writes `~/.config/thorium-flags.conf` (comments stripped) and, if a system Thorium `.desktop` exists under `/usr/share/applications/`, a user override in `~/.local/share/applications/` with an updated `Exec=` line. Some builds ignore the conf file; the `.desktop` override is the reliable path.
 
 **AV1:** Disabling `Av1VideoDecoder` matches Zen’s intent (`media.av1.enabled = false`): the GTX 1660 SUPER has **no** AV1 hardware decode; VP9 is the practical choice.
 
-**Flag names:** If the browser rejects a flag, check `thorium --help` / `chromium --help` for your build—the canonical raster flag is `--num-raster-threads`.
+If a flag is rejected, check `thorium --help` for your build—the raster flag is `--num-raster-threads`.
+
+📖 **[configs/README.md — Thorium section](../../../configs/README.md)**
 
 ---
 
@@ -88,5 +72,5 @@ After launch, verify:
 ## 5. Summary
 
 * Thorium makes sense as a **Blink/ANGLE** tool on the **same machine** as Zen, with the same **AV1 limitation** and focus on **Wayland + VA-API**.
-* Good tuning is **iterative**: start from section 3, then peel off contentious flags when something breaks.
-* A natural next step for the repo is a checked-in flag list under `configs/` plus an install helper—once your driver + Thorium combo is stable.
+* Good tuning is **iterative**: edit [`configs/thorium-browser/flags.conf`](../../../configs/thorium-browser/flags.conf), then re-run `optimize.sh` or adjust the launcher by hand.
+* `./scripts/check.sh` reports whether Thorium flag files and a user `.desktop` are present.

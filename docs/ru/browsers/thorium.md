@@ -38,38 +38,22 @@
 
 ---
 
-## 3. Пример флагов (`~/.config/thorium-flags.conf`)
+## 3. Флаги в репозитории и установка
 
-В части RPM-сборок Thorium не подхватывает стандартные пути; флаги часто **прописывают в `.desktop`** или генерируют из файла. Ниже — **стартовая точка**, которую стоит подтвердить на вашей версии браузера и драйвера.
+Канонический список (одна строка = один аргумент; строки с `#` при установке **не** передаются в процесс):
 
-```bash
-# --- ГРАФИКА (ANGLE / Wayland) ---
---ozone-platform-hint=auto
---ozone-platform=wayland
---use-gl=angle
---use-angle=gl
---ignore-gpu-blocklist
-# Осторожно: может ухудшить стабильность; при глюках убрать и сравнить
---disable-gpu-driver-bug-workarounds
+* **[flags.conf](../../../configs/thorium-browser/flags.conf)** — комментарии на английском; этот файл читает [`scripts/optimize.sh`](../../../scripts/optimize.sh).
+* **[flags.ru.conf](../../../configs/thorium-browser/flags.ru.conf)** — те же активные флаги, комментарии по-русски.
 
-# --- ВИДЕО (VA-API, без AV1 в железе) ---
---enable-features=VaapiVideoDecoder,VaapiVideoDecodeLinuxGL
---disable-features=UseChromeOSDirectVideoDecoder,Av1VideoDecoder
+По умолчанию в «боевой» части файла — **стабильный базис** (Wayland, ANGLE, VA-API, отключение AV1, растеризация). Более агрессивные опции (`--disable-gpu-driver-bug-workarounds`, `--enable-zero-copy`, HDR) оставлены **закомментированными** — раскомментируйте после проверки на своём драйвере.
 
-# --- ПРОИЗВОДИТЕЛЬНОСТЬ ---
---enable-zero-copy
---enable-gpu-rasterization
---num-raster-threads=4
---force-gpu-mem-available-mb=4096
-
-# --- HDR (экспериментально; проверять на контенте и мониторе) ---
---force-color-profile=hdr10
---enable-hdr
-```
+**Установка:** `sudo ./scripts/optimize.sh` записывает `~/.config/thorium-flags.conf` (без комментариев) и, если найден системный ярлык Thorium в `/usr/share/applications/`, копию с переопределённой строкой `Exec=` в `~/.local/share/applications/`. Часть сборок игнорирует conf-файл — тогда как раз помогает пользовательский `.desktop`.
 
 **Про AV1:** отключение `Av1VideoDecoder` согласуется с логикой Zen (`media.av1.enabled = false`): на GTX 1660 SUPER **нет** аппаратного AV1, выгоднее VP9.
 
-Имена флагов иногда меняются между ветками Chromium; при ошибке «unknown flag» сверяйтесь с `thorium --help` или `chromium --help` для вашей сборки.
+Имена флагов меняются между ветками Chromium; при ошибке «unknown flag» сверяйтесь с `thorium --help` для вашей сборки.
+
+📖 **[configs/README.md — раздел Thorium](../../../configs/README.md)**
 
 ---
 
@@ -88,5 +72,5 @@
 ## 5. Резюме
 
 * Thorium оправдан как **Blink/ANGLE**-инструмент под **ту же машину**, что и Zen, с теми же **ограничениями по AV1** и упором в **Wayland + VA-API**.
-* Оптимальная настройка — **итерация**: флаги из раздела 3 как база, затем отключение спорных опций при сбоях.
-* Дальнейший шаг по репозиторию: вынести проверенный набор флагов в `configs/` и скрипт установки — когда профиль будет стабильно проверен на вашей связке драйвер + версия Thorium.
+* Оптимальная настройка — **итерация**: правьте [`configs/thorium-browser/flags.conf`](../../../configs/thorium-browser/flags.conf), затем снова запускайте `optimize.sh` или обновляйте ярлык вручную.
+* Проверка наличия файлов: `./scripts/check.sh` (раздел Thorium).

@@ -38,6 +38,15 @@ check_root() {
     fi
 }
 
+# Home directory of the user running the workstation (works when invoked via sudo).
+real_user_home() {
+    if [[ -n "${SUDO_USER:-}" ]]; then
+        getent passwd "$SUDO_USER" | cut -d: -f6
+    else
+        echo "$HOME"
+    fi
+}
+
 backup_file() {
     local file="$1"
     [[ -f "$file" ]] || return 0
@@ -163,12 +172,15 @@ configure_zen_browser() {
     local user_js="$PROJECT_ROOT/configs/zen-browser/user.js"
     [[ -f "$user_js" ]] || { log_warn "user.js not found, skipping"; return 0; }
     
+    local uh
+    uh="$(real_user_home)"
+    
     # Find Zen Browser profile directory
     local profile_dir=""
     local possible_dirs=(
-        "$HOME/.zen"
-        "$HOME/.local/share/zen"
-        "$HOME/.mozilla/zen"
+        "$uh/.zen"
+        "$uh/.local/share/zen"
+        "$uh/.mozilla/zen"
     )
     
     for dir in "${possible_dirs[@]}"; do
@@ -210,6 +222,84 @@ configure_zen_browser() {
 }
 
 # =============================================================================
+# Thorium Browser Configuration
+# =============================================================================
+
+configure_thorium_browser() {
+    log_info "Configuring Thorium Browser flags..."
+    
+    local src="$PROJECT_ROOT/configs/thorium-browser/flags.conf"
+    [[ -f "$src" ]] || { log_warn "configs/thorium-browser/flags.conf not found, skipping"; return 0; }
+    
+    local uh
+    uh="$(real_user_home)"
+    local out="$uh/.config/thorium-flags.conf"
+    
+    if [[ "$DRY_RUN" == true ]]; then
+        log_dry "Would write stripped flags to: $out"
+    else
+        mkdir -p "$uh/.config"
+        grep -v '^[[:space:]]*#' "$src" | grep -v '^[[:space:]]*$' | sed 's/^[[:space:]]*//' > "$out"
+        log_info "Installed Thorium flags list: $out"
+    fi
+    
+    # Optional: user .desktop override so flags are passed at launch (RPM/COPR vary)
+    local sys_desktop=""
+    local f
+    for f in /usr/share/applications/*thorium*.desktop /usr/share/applications/*Thorium*.desktop; do
+        [[ -f "$f" ]] || continue
+        sys_desktop="$f"
+        break
+    done
+    
+    if [[ -z "$sys_desktop" ]]; then
+        log_warn "No Thorium .desktop found in /usr/share/applications — merge flags from $out into your launcher manually"
+        log_info "See: $PROJECT_ROOT/configs/README.md (Thorium section)"
+        return 0
+    fi
+    
+    local exec_line binary first_word flag_str
+    exec_line=$(grep '^Exec=' "$sys_desktop" | head -1 | sed 's/^Exec=//')
+    read -r first_word _ <<< "$exec_line"
+    if [[ "$first_word" == /* ]]; then
+        binary="$first_word"
+    else
+        binary=$(command -v "$first_word" 2>/dev/null || echo "$first_word")
+    fi
+    if [[ -z "$binary" ]]; then
+        log_warn "Could not parse binary from Exec= in $sys_desktop; only $out was written"
+        return 0
+    fi
+    
+    flag_str=$(grep -v '^[[:space:]]*#' "$src" | grep -v '^[[:space:]]*$' | sed 's/^[[:space:]]*//' | paste -sd' ' -)
+    
+    local user_desktop="$uh/.local/share/applications/$(basename "$sys_desktop")"
+    local tmp
+    tmp=$(mktemp)
+    
+    if [[ "$DRY_RUN" == true ]]; then
+        log_dry "Would write user .desktop override: $user_desktop (from $sys_desktop)"
+        rm -f "$tmp"
+        return 0
+    fi
+    
+    local replaced=0
+    while IFS= read -r line || [[ -n "${line:-}" ]]; do
+        if [[ $replaced -eq 0 && "$line" == Exec=* ]]; then
+            printf 'Exec=%s %s %%U\n' "$binary" "$flag_str"
+            replaced=1
+        else
+            printf '%s\n' "$line"
+        fi
+    done < "$sys_desktop" > "$tmp"
+    
+    mkdir -p "$uh/.local/share/applications"
+    backup_file "$user_desktop"
+    mv "$tmp" "$user_desktop"
+    log_info "Installed user .desktop override: $user_desktop"
+}
+
+# =============================================================================
 # Power Profile
 # =============================================================================
 
@@ -247,6 +337,7 @@ main() {
     configure_grub
     configure_environment
     configure_zen_browser
+    configure_thorium_browser
     configure_power_profile
     
     log_info ""
@@ -254,7 +345,7 @@ main() {
     log_warn "Next steps:"
     log_warn "  1. Run: sudo grub2-mkconfig -o /boot/grub2/grub.cfg"
     log_warn "  2. Reboot the system"
-    log_warn "  3. Verify Zen Browser user.js installation (if needed)"
+    log_warn "  3. Verify Zen Browser user.js and Thorium flags / .desktop (if needed)"
 }
 
 main "$@"
