@@ -20,7 +20,11 @@
 # Тестовый запуск (без изменений)
 ./scripts/optimize.sh --dry-run
 
-# Реальный запуск (требует root)
+# Только Thorium (флаги + пользовательский .desktop, root не нужен)
+./scripts/optimize.sh --thorium-only
+./scripts/optimize.sh --thorium-only --dry-run
+
+# Полный прогон (требует root)
 sudo ./scripts/optimize.sh
 ```
 

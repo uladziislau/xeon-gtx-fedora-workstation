@@ -10,7 +10,7 @@ readonly SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 readonly PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 readonly BACKUP_DIR="$HOME/.xeon-gtx-backups/$(date +%Y%m%d_%H%M%S)"
 
-# Dry-run mode
+# Dry-run mode (full run only; see dispatcher at bottom for --thorium-only)
 DRY_RUN=false
 [[ "${1:-}" == "--dry-run" ]] && DRY_RUN=true
 
@@ -348,4 +348,31 @@ main() {
     log_warn "  3. Verify Zen Browser user.js and Thorium flags / .desktop (if needed)"
 }
 
-main "$@"
+# Install only Thorium flags + user .desktop (no root). Optional: second arg --dry-run
+thorium_only_main() {
+    local a="${1:-}"
+    local b="${2:-}"
+    if [[ "$a" == "--dry-run" ]] || [[ "$b" == "--dry-run" ]]; then
+        DRY_RUN=true
+    else
+        DRY_RUN=false
+    fi
+    log_info "Thorium-only mode (no GRUB, no /etc/environment, no Zen)"
+    if [[ "$DRY_RUN" == true ]]; then
+        log_dry "No files will be modified"
+    else
+        mkdir -p "$BACKUP_DIR"
+        log_info "Backup directory: $BACKUP_DIR"
+    fi
+    configure_thorium_browser
+    log_info "Done. Restart Thorium from the app menu (or log out/in) so the .desktop override is picked up."
+}
+
+case "${1:-}" in
+    --thorium-only)
+        thorium_only_main "${2:-}" "${3:-}"
+        ;;
+    *)
+        main "$@"
+        ;;
+esac
