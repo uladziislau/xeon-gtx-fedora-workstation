@@ -44,12 +44,44 @@
 │       └── troubleshooting/ # Решение проблем
 ├── configs/                 # Конфигурационные файлы
 │   └── zen-browser/        # Файлы user.js для Zen Browser
+├── scripts/                 # Скрипты автоматизации
+│   ├── optimize.sh         # Главный скрипт оптимизации
+│   ├── check.sh            # Проверка конфигурации
+│   └── README.md           # Документация по скриптам
 └── README.ru.md            # Этот файл
 ```
 
 ---
 
 ## 🛠️ Краткая инструкция по применению
+
+### 🚀 Автоматическая установка (Рекомендуется)
+
+**Самый быстрый способ применить все оптимизации:**
+
+```bash
+# Клонировать репозиторий
+git clone https://github.com/uladziislau/xeon-gtx-fedora-workstation.git
+cd xeon-gtx-fedora-workstation
+
+# Запустить скрипт оптимизации
+sudo ./scripts/optimize.sh
+
+# Обновить GRUB и перезагрузить
+sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+sudo reboot
+```
+
+**Проверить текущие настройки:**
+```bash
+./scripts/check.sh
+```
+
+📖 **[Документация по скриптам →](scripts/README.md)**
+
+---
+
+### Ручная установка
 
 ### 1. Ядро и GRUB
 
