@@ -38,14 +38,28 @@ Shared goals on your system:
 
 ---
 
-## 3. Repository flag lists and installation
+## 3. Why chrome://flags stays on Default
+
+**chrome://flags** lists **experiments** baked into that build. Settings from [`flags.conf`](../../../configs/thorium-browser/flags.conf) are injected via the **command line** (`.desktop`); they **do not** show up here as Enabled—that is expected. See the real argv string under **`chrome://gpu` → Command Line** or **`chrome://version`**.
+
+**Hardware, in Chromium terms:**
+
+- **GTX 1660 SUPER (6 GB VRAM, no AV1 decode):** the repo config already enables VA-API, disables AV1, GPU raster, and a VRAM budget hint (`--force-gpu-mem-available-mb`); add an extension like enhanced-h264ify if sites still push AV1.
+- **Xeon E5-2696 v3:** raster throughput is scaled with `--num-raster-threads`; JS/network parallelism is handled internally. There is no “Xeon” or “AVX2” toggle in the UI.
+- **64 GB RAM, 4×16 GB DDR4-2133 (quad channel):** the browser **does not** see DIMM topology—there is no quad-channel flag. What helps is a **larger cache** (`--disk-cache-size`, optional tmpfs path; see commented block in `flags.conf`).
+
+Touch **chrome://flags** only for experiments **not** covered by the CLI, and change **one at a time** so you can bisect regressions.
+
+---
+
+## 4. Repository flag lists and installation
 
 Canonical lists (one line = one argv token; lines starting with `#` are **not** passed through):
 
 * **[flags.conf](../../../configs/thorium-browser/flags.conf)** — English comments; consumed by [`scripts/optimize.sh`](../../../scripts/optimize.sh).
 * **[flags.ru.conf](../../../configs/thorium-browser/flags.ru.conf)** — same active flags, Russian comments for reading.
 
-The default **active** block is a **stable baseline** (Wayland, ANGLE, VA-API, AV1 disabled, rasterization). More aggressive options (`--disable-gpu-driver-bug-workarounds`, `--enable-zero-copy`, HDR) stay **commented out**—uncomment after you validate on your driver.
+The default **active** block includes Wayland, ANGLE (GL), VA-API, **ParallelDownloading**, AV1 disabled, GPU raster, **8** raster threads (good fit for many-core CPUs), and a **6 GB-class** VRAM hint for the 1660 SUPER. More aggressive options (`--disable-gpu-driver-bug-workarounds`, `--enable-zero-copy`, HDR) stay **commented out**—uncomment after you validate on your driver.
 
 **Install:** `sudo ./scripts/optimize.sh` writes `~/.config/thorium-flags.conf` (comments stripped) and, if a system Thorium `.desktop` exists under `/usr/share/applications/`, a user override in `~/.local/share/applications/` with an updated `Exec=` line. Some builds ignore the conf file; the `.desktop` override is the reliable path.
 
@@ -57,7 +71,7 @@ If a flag is rejected, check `thorium --help` for your build—the raster flag i
 
 ---
 
-## 4. Launcher and verification
+## 5. Launcher and verification
 
 Create or edit a `.desktop` so **all** arguments actually reach the process (some packages ignore an external conf).
 
@@ -69,7 +83,7 @@ After launch, verify:
 
 ---
 
-## 5. Summary
+## 6. Summary
 
 * Thorium makes sense as a **Blink/ANGLE** tool on the **same machine** as Zen, with the same **AV1 limitation** and focus on **Wayland + VA-API**.
 * Good tuning is **iterative**: edit [`configs/thorium-browser/flags.conf`](../../../configs/thorium-browser/flags.conf), then re-run `optimize.sh` or adjust the launcher by hand.
