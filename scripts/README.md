@@ -11,7 +11,7 @@
 - ✅ Параметры загрузки GRUB (kernel parameters)
 - ✅ Системные переменные окружения (`/etc/environment`)
 - ✅ Конфигурация Zen Browser (`user.js`)
-- ✅ Флаги Thorium (`~/.config/thorium-flags.conf` и пользовательский `.desktop`, если найден системный ярлык)
+- ✅ Флаги Thorium (`~/.config/thorium/thorium-flags.conf`; без дублирования в `.desktop`)
 - ✅ Профиль питания (Performance)
 
 **Использование:**

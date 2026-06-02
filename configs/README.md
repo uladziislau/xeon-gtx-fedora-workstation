@@ -49,7 +49,7 @@ The configuration includes:
 
 ## 🔷 Thorium Browser Configuration
 
-Thorium uses **command-line flags**, not a `user.js`. The repository ships a flag list aligned with the same goals as Zen v21 (Wayland, VP9 over AV1, VA-API, ANGLE).
+Thorium uses **command-line flags**, not a `user.js`. The repository ships a flag list aligned with the same goals as Zen v21 (Wayland, VP9 over AV1, VA-API, ANGLE). **v22** adds partial-raster off, safe video frames, VA-API driver checks bypass, renderer cap, and tmpfs caches for 64 GB RAM.
 
 ### Files
 
@@ -62,9 +62,9 @@ Comment lines (`# ...`) and blank lines are ignored when applying flags. Optiona
 
 ### Installation
 
-**Automated (recommended after cloning):** run `sudo ./scripts/optimize.sh` — it writes `~/.config/thorium-flags.conf` and, if a system Thorium `.desktop` file is found, a user override under `~/.local/share/applications/` so the flags are passed on launch.
+**Automated (recommended after cloning):** run `sudo ./scripts/optimize.sh` — it writes `~/.config/thorium/thorium-flags.conf` (the path the `/usr/bin/thorium-browser` wrapper reads) and removes any user `.desktop` override that duplicated flags in `Exec=`. Launch via the system menu entry; no flags in `.desktop` are needed.
 
-**Manual:** copy `flags.conf` to `~/.config/thorium-flags.conf` (strip comment lines), then append the same arguments to your launcher `Exec=` line, or merge into a custom `.desktop` file. Some RPM/Flatpak builds ignore `thorium-flags.conf`; the desktop override is the reliable path.
+**Manual:** copy `flags.conf` to `~/.config/thorium/thorium-flags.conf` (strip comment lines). Do not duplicate the same flags in a `.desktop` file — the wrapper injects them automatically.
 
 📖 **[Full guide (EN) →](../docs/en/browsers/thorium.md)** · **[RU →](../docs/ru/browsers/thorium.md)**
 

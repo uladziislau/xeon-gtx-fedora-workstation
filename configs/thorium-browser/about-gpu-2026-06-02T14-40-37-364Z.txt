@@ -1,0 +1,1893 @@
+Graphics Feature Status
+=======================
+*   Canvas: Hardware accelerated
+*   Direct Rendering Display Compositor: Disabled
+*   Compositing: Hardware accelerated
+*   Multiple Raster Threads: Force enabled
+*   OpenGL: Enabled
+*   Rasterization: Hardware accelerated on all pages
+*   Raw Draw: Disabled
+*   Skia Graphite: Disabled
+*   TreesInViz: Enabled
+*   Video Decode: Hardware accelerated
+*   Video Encode: Hardware accelerated
+*   Vulkan: Disabled
+*   WebGL: Hardware accelerated
+*   WebGL2: Hardware accelerated
+*   WebGPU: Hardware accelerated
+*   WebNN: Disabled
+
+Version Information
+===================
+Data exported              : 2026-06-02T14:40:36.752Z
+Chrome version             : Chrome/138.0.7204.300
+Operating system           : Linux 7.0.8-cachyos1.fc44.x86_64
+Software rendering list URL: https://chromium.googlesource.com/chromium/src/+/4e5f8b529d7de813b27d84632b77147d43fbea8a/gpu/config/software_rendering_list.json
+Driver bug list URL        : https://chromium.googlesource.com/chromium/src/+/4e5f8b529d7de813b27d84632b77147d43fbea8a/gpu/config/gpu_driver_bug_list.json
+ANGLE commit id            : 2d08a9518d40
+2D graphics backend        : Skia/138 1676032e80246cdaa04f7e2187cb4e038c0fdd05
+Command Line               : /usr/bin/thorium-browser --ozone-platform-hint=auto --ozone-platform=wayland --use-gl=angle --use-angle=gl --ignore-gpu-blocklist --enable-features=VaapiVideoDecoder,VaapiVideoDecodeLinuxGL,VaapiIgnoreDriverChecks,ParallelDownloading --disable-features=UseChromeOSDirectVideoDecoder,Av1VideoDecoder --disable-gpu-memory-buffer-video-frames --enable-gpu-rasterization --disable-partial-raster --num-raster-threads=12 --force-gpu-mem-available-mb=6144 --renderer-process-limit=16 --disk-cache-dir=/tmp/thorium-cache --disk-cache-size=16106127360 --media-cache-size=8589934592 --flag-switches-begin --cast-streaming-force-enable-hardware-h264 --cast-streaming-force-enable-hardware-vp8 --cast-streaming-force-enable-hardware-vp9 --enable-gpu-rasterization --enable-gpu-service-logging --enable-unsafe-webgpu --gpu-rasterization-msaa-sample-count=16 --ignore-gpu-blocklist --isolate-origins --ozone-platform-hint=wayland --enable-smooth-scrolling --enable-features=VaapiVideoDecoder,VaapiVideoDecodeLinuxGL,VaapiIgnoreDriverChecks,ParallelDownloading,AcceleratedVideoDecodeLinuxGL,AlignSurfaceLayerImplToPixelGrid,CastStreamingHardwareHevc,CastStreamingMediaVideoEncoder,CastStreamingVp8,CastStreamingVp9,ChromeWideEchoCancellation,DisableProcessReuse,OriginAgentClusterDefaultEnable,OriginKeyedProcessesByDefault,RendererSideContentDecoding,ResamplingScrollEventsExperimentalPrediction,RustyPng,SkiaGraphite,TreesInViz,UseOutOfProcessVideoDecoding,VaapiOnNvidiaGPUs,WaylandLinuxDrmSyncobj,WaylandPerSurfaceScale,WaylandSessionManagement,WaylandTextInputV3,WaylandUiScale,WebRtcApmDownmixCaptureAudioMethod --disable-features=UseChromeOSDirectVideoDecoder,Av1VideoDecoder,CastStreamingAv1,MiddleClickAutoscroll,RestoreTabButton,Thorium2024 --flag-switches-end
+
+Driver Information
+==================
+Initialization time             : 779
+In-process GPU                  : false
+Skia Backend                    : GaneshGL
+Passthrough Command Decoder     : true
+Sandboxed                       : false
+GPU0                            : VENDOR= 0x10de [Google Inc. (NVIDIA Corporation)], DEVICE=0x21c4 [ANGLE (NVIDIA Corporation, NVIDIA GeForce GTX 1660 SUPER/PCIe/SSE2, OpenGL ES 3.2 NVIDIA 595.71.05)], DRIVER_VENDOR=NVIDIA, DRIVER_VERSION=595.71.05 *ACTIVE*
+Optimus                         : false
+AMD switchable                  : false
+Pixel shader version            : 1.00
+Vertex shader version           : 1.00
+Max. MSAA samples               : 8
+Machine model name              : 
+Machine model version           : 
+GL implementation parts         : (gl=egl-angle,angle=opengl)
+Display type                    : ANGLE_OPENGL
+GL_VENDOR                       : Google Inc. (NVIDIA Corporation)
+GL_RENDERER                     : ANGLE (NVIDIA Corporation, NVIDIA GeForce GTX 1660 SUPER/PCIe/SSE2, OpenGL ES 3.2 NVIDIA 595.71.05)
+GL_VERSION                      : OpenGL ES 2.0.0 (ANGLE 2.1.25522 git hash: 2d08a9518d40)
+GL_EXTENSIONS                   : GL_AMD_performance_monitor GL_ANGLE_base_vertex_base_instance_shader_builtin GL_ANGLE_blob_cache GL_ANGLE_client_arrays GL_ANGLE_compressed_texture_etc GL_ANGLE_depth_texture GL_ANGLE_framebuffer_blit GL_ANGLE_framebuffer_multisample GL_ANGLE_get_serialized_context_string GL_ANGLE_get_tex_level_parameter GL_ANGLE_instanced_arrays GL_ANGLE_memory_size GL_ANGLE_polygon_mode GL_ANGLE_program_binary_readiness_query GL_ANGLE_program_cache_control GL_ANGLE_request_extension GL_ANGLE_robust_client_memory GL_ANGLE_texture_compression_dxt3 GL_ANGLE_texture_compression_dxt5 GL_ANGLE_texture_external_update GL_ANGLE_translated_shader_source GL_ARM_rgba8 GL_CHROMIUM_bind_generates_resource GL_CHROMIUM_bind_uniform_location GL_CHROMIUM_color_buffer_float_rgba GL_CHROMIUM_copy_texture GL_CHROMIUM_framebuffer_mixed_samples GL_CHROMIUM_lose_context GL_CHROMIUM_sync_query GL_EXT_EGL_image_external_wrap_modes GL_EXT_base_instance GL_EXT_blend_func_extended GL_EXT_blend_minmax GL_EXT_clear_texture GL_EXT_clip_control GL_EXT_color_buffer_half_float GL_EXT_compressed_ETC1_RGB8_sub_texture GL_EXT_debug_label GL_EXT_debug_marker GL_EXT_depth_clamp GL_EXT_discard_framebuffer GL_EXT_disjoint_timer_query GL_EXT_draw_elements_base_vertex GL_EXT_float_blend GL_EXT_frag_depth GL_EXT_instanced_arrays GL_EXT_map_buffer_range GL_EXT_memory_object GL_EXT_memory_object_fd GL_EXT_multisample_compatibility GL_EXT_multisampled_render_to_texture GL_EXT_multisampled_render_to_texture2 GL_EXT_occlusion_query_boolean GL_EXT_polygon_offset_clamp GL_EXT_read_format_bgra GL_EXT_robustness GL_EXT_sRGB GL_EXT_sRGB_write_control GL_EXT_semaphore GL_EXT_semaphore_fd GL_EXT_shader_texture_lod GL_EXT_shadow_samplers GL_EXT_texture_border_clamp GL_EXT_texture_compression_bptc GL_EXT_texture_compression_dxt1 GL_EXT_texture_compression_rgtc GL_EXT_texture_compression_s3tc_srgb GL_EXT_texture_filter_anisotropic GL_EXT_texture_format_BGRA8888 GL_EXT_texture_mirror_clamp_to_edge GL_EXT_texture_norm16 GL_EXT_texture_rg GL_EXT_texture_sRGB_decode GL_EXT_texture_storage GL_EXT_unpack_subimage GL_KHR_blend_equation_advanced GL_KHR_blend_equation_advanced_coherent GL_KHR_debug GL_KHR_parallel_shader_compile GL_KHR_robustness GL_KHR_texture_compression_astc_hdr GL_KHR_texture_compression_astc_ldr GL_KHR_texture_compression_astc_sliced_3d GL_NV_depth_buffer_float2 GL_NV_fence GL_NV_framebuffer_blit GL_NV_pack_subimage GL_NV_pixel_buffer_object GL_NV_polygon_mode GL_NV_read_depth GL_NV_read_stencil GL_NV_robustness_video_memory_purge GL_OES_EGL_image GL_OES_EGL_image_external GL_OES_EGL_sync GL_OES_compressed_EAC_R11_signed_texture GL_OES_compressed_EAC_R11_unsigned_texture GL_OES_compressed_EAC_RG11_signed_texture GL_OES_compressed_EAC_RG11_unsigned_texture GL_OES_compressed_ETC1_RGB8_texture GL_OES_compressed_ETC2_RGB8_texture GL_OES_compressed_ETC2_RGBA8_texture GL_OES_compressed_ETC2_punchthroughA_RGBA8_texture GL_OES_compressed_ETC2_punchthroughA_sRGB8_alpha_texture GL_OES_compressed_ETC2_sRGB8_alpha8_texture GL_OES_compressed_ETC2_sRGB8_texture GL_OES_depth24 GL_OES_depth32 GL_OES_depth_texture GL_OES_draw_elements_base_vertex GL_OES_element_index_uint GL_OES_fbo_render_mipmap GL_OES_get_program_binary GL_OES_mapbuffer GL_OES_packed_depth_stencil GL_OES_rgb8_rgba8 GL_OES_standard_derivatives GL_OES_surfaceless_context GL_OES_texture_3D GL_OES_texture_border_clamp GL_OES_texture_float GL_OES_texture_float_linear GL_OES_texture_half_float GL_OES_texture_half_float_linear GL_OES_texture_npot GL_OES_vertex_array_object GL_WEBGL_video_texture
+Disabled Extensions             : GL_KHR_blend_equation_advanced GL_KHR_blend_equation_advanced_coherent
+Disabled WebGL Extensions       : 
+Window system binding vendor    : Google Inc. (NVIDIA Corporation)
+Window system binding version   : 1.5 (ANGLE 2.1.25522 git hash: 2d08a9518d40)
+Window system binding extensions: EGL_EXT_create_context_robustness EGL_KHR_create_context EGL_KHR_image EGL_KHR_image_base EGL_KHR_gl_colorspace EGL_KHR_gl_texture_2D_image EGL_KHR_gl_texture_cubemap_image EGL_KHR_gl_texture_3D_image EGL_KHR_gl_renderbuffer_image EGL_KHR_get_all_proc_addresses EGL_KHR_fence_sync EGL_KHR_wait_sync EGL_ANGLE_create_context_webgl_compatibility EGL_CHROMIUM_create_context_bind_generates_resource EGL_KHR_swap_buffers_with_damage EGL_EXT_pixel_format_float EGL_KHR_surfaceless_context EGL_ANGLE_display_texture_share_group EGL_ANGLE_display_semaphore_share_group EGL_ANGLE_create_context_client_arrays EGL_ANGLE_program_cache_control EGL_ANGLE_robust_resource_initialization EGL_ANGLE_create_context_extensions_enabled EGL_ANDROID_blob_cache EGL_ANDROID_recordable EGL_ANDROID_native_fence_sync EGL_ANGLE_create_context_backwards_compatible EGL_KHR_no_config_context EGL_KHR_create_context_no_error EGL_EXT_image_dma_buf_import EGL_EXT_image_dma_buf_import_modifiers EGL_NV_robustness_video_memory_purge EGL_KHR_reusable_sync EGL_ANGLE_external_context_and_surface EGL_EXT_buffer_age EGL_ANGLE_context_virtualization EGL_ANGLE_memory_usage_report
+XDG_CURRENT_DESKTOP             : KDE
+XDG_SESSION_TYPE                : wayland
+Interfaces exposed by the Wayland compositor: wl_compositor:6 zwp_tablet_manager_v2:2 zwp_keyboard_shortcuts_inhibit_manager_v1:1 zxdg_decoration_manager_v1:1 wp_viewporter:1 wp_security_context_manager_v1:1 wp_fractional_scale_manager_v1:1 wl_shm:2 wl_seat:10 zwp_pointer_gestures_v1:3 zwp_pointer_constraints_v1:1 zwp_relative_pointer_manager_v1:1 wl_data_device_manager:3 ext_data_control_manager_v1:1 wp_cursor_shape_manager_v1:2 zwp_primary_selection_device_manager_v1:1 org_kde_kwin_idle:1 zwp_idle_inhibit_manager_v1:1 ext_idle_notifier_v1:2 org_kde_plasma_shell:8 org_kde_kwin_appmenu_manager:2 org_kde_kwin_server_decoration_palette_manager:1 org_kde_plasma_virtual_desktop_management:3 org_kde_kwin_shadow_manager:2 org_kde_kwin_dpms_manager:1 org_kde_kwin_server_decoration_manager:1 kde_output_management_v2:19 zxdg_output_manager_v1:3 wl_subcompositor:1 zxdg_exporter_v2:1 zxdg_importer_v2:1 xdg_activation_v1:1 wp_content_type_manager_v1:1 wp_tearing_control_manager_v1:1 xdg_toplevel_drag_manager_v1:1 xdg_toplevel_icon_manager_v1:1 kde_screen_edge_manager_v1:1 frog_color_management_factory_v1:1 wp_presentation:2 wp_color_manager_v1:1 xdg_wm_dialog_v1:1 kde_external_brightness_v1:3 wp_alpha_modifier_v1:1 wl_fixes:1 wp_fifo_manager_v1:1 wp_single_pixel_buffer_manager_v1:1 xdg_toplevel_tag_manager_v1:1 wp_color_representation_manager_v1:1 wp_pointer_warp_v1:1 wp_linux_drm_syncobj_manager_v1:1 xdg_wm_base:6 zwlr_layer_shell_v1:5 org_kde_kwin_keystate:5 kde_output_device_v2:20 wl_output:4 wp_drm_lease_device_v1:1 kde_output_order_v1:1 zwp_text_input_manager_v1:1 zwp_text_input_manager_v2:1 zwp_text_input_manager_v3:1 org_kde_kwin_blur_manager:1 org_kde_kwin_contrast_manager:2 org_kde_kwin_slide_manager:1 xdg_system_bell_v1:1 zwp_linux_dmabuf_v1:5
+Ozone platform                  : wayland
+Direct rendering version        : unknown
+Reset notification strategy     : 0x8252
+GPU process crash count         : 0
+gfx::BufferFormats supported for allocation and texturing: R_8: supported,  R_16: not supported,  RG_88: supported,  RG_1616: not supported,  BGR_565: supported,  RGBA_4444: not supported,  RGBX_8888: supported,  RGBA_8888: supported,  BGRX_8888: supported,  BGRA_1010102: supported,  RGBA_1010102: supported,  BGRA_8888: supported,  RGBA_F16: supported,  YVU_420: supported,  YUV_420_BIPLANAR: supported,  YUVA_420_TRIPLANAR: not supported,  P010: not supported
+
+Driver Bug Workarounds
+======================
+*   disable_discard_framebuffer
+*   enable_webgl_timer_query_extensions
+*   exit_on_context_lost
+*   force_cube_complete
+*   init_gl_position_in_vertex_shader
+*   unpack_overlapping_rows_separately_unpack_buffer
+*   disabled_extension_GL_KHR_blend_equation_advanced
+*   disabled_extension_GL_KHR_blend_equation_advanced_coherent
+
+Problems Detected
+=================
+*   Program link fails in NVIDIA Linux if gl_Position is not set:
+    (http://crbug.com/286468)
+    Applied Workarounds: init_gl_position_in_vertex_shader
+
+*   NVIDIA fails glReadPixels from incomplete cube map texture:
+    (http://crbug.com/518889)
+    Applied Workarounds: force_cube_complete
+
+*   Framebuffer discarding not useful on NVIDIA Kepler architecture and later:
+    (http://crbug.com/601753)
+    Applied Workarounds: disable_discard_framebuffer
+
+*   Unpacking overlapping rows from unpack buffers is unstable on NVIDIA GL driver:
+    (http://crbug.com/596774)
+    Applied Workarounds: unpack_overlapping_rows_separately_unpack_buffer
+
+*   Disable KHR_blend_equation_advanced until cc shaders are updated:
+    (http://crbug.com/661715)
+    Applied Workarounds: disable(GL_KHR_blend_equation_advanced),
+        disable(GL_KHR_blend_equation_advanced_coherent)
+
+*   Expose WebGL's disjoint_timer_query extensions on platforms with site isolation:
+    (http://crbug.com/808744), (http://crbug.com/870491)
+    Applied Workarounds: enable_webgl_timer_query_extensions
+
+*   Some drivers can't recover after OUT_OF_MEM and context lost:
+    (http://crbug.com/893177)
+    Applied Workarounds: exit_on_context_lost
+
+ANGLE Features
+==============
+*   allowCompressedFormats (Frontend workarounds): Enabled
+
+*   alwaysEnableEmulatedMultidrawExtensions (Frontend workarounds): Disabled
+
+*   alwaysRunLinkSubJobsThreaded (Frontend features): Disabled
+
+*   cacheCompiledShader (Frontend features): Enabled
+
+*   compileJobIsThreadSafe (Frontend features): Disabled
+
+*   disableAnisotropicFiltering (Frontend workarounds): Disabled
+
+*   disableProgramBinary (Frontend features): Disabled
+
+*   disableProgramCaching (Frontend features): Disabled
+
+*   disableProgramCachingForTransformFeedback (Frontend workarounds): Disabled
+
+*   dumpShaderSource (Frontend features): Disabled
+
+*   dumpTranslatedShaders (Frontend features): Disabled
+
+*   emulatePixelLocalStorage (Frontend features): Enabled
+
+*   enableCaptureLimits (Frontend features): Disabled
+
+*   enableProgramBinaryForCapture (Frontend features): Disabled
+
+*   enableShaderSubstitution (Frontend workarounds): Disabled
+
+*   enableTranslatedShaderSubstitution (Frontend workarounds): Disabled
+
+*   forceDepthAttachmentInitOnClear (Frontend workarounds): Disabled
+
+*   forceFlushAfterDrawcallUsingShadowmap (Frontend workarounds): Disabled
+
+*   forceGlErrorChecking (Frontend features): Disabled
+
+*   forceInitShaderVariables (Frontend features): Disabled
+
+*   forceMinimumMaxVertexAttributes (Frontend features): Disabled
+
+*   forceRobustResourceInit (Frontend features): Disabled
+
+*   linkJobIsThreadSafe (Frontend features): Disabled
+
+*   loseContextOnOutOfMemory (Frontend workarounds): Enabled
+
+*   rejectWebglShadersWithUndefinedBehavior (Frontend workarounds): Enabled
+
+*   singleThreadedTextureDecompression (Frontend workarounds): Disabled
+
+*   uncurrentEglSurfaceUponSurfaceDestroy (Frontend workarounds): Disabled
+
+*   RGBA4IsNotSupportedForColorRendering (OpenGL workarounds): Disabled
+
+*   RGBDXT1TexturesSampleZeroAlpha (OpenGL workarounds): Disabled
+
+*   addAndTrueToLoopCondition (OpenGL workarounds): Disabled
+
+*   adjustSrcDstRegionForBlitFramebuffer (OpenGL workarounds): Enabled
+
+*   allowAstcFormats (OpenGL workarounds): Enabled
+
+*   allowClearForRobustResourceInit (OpenGL workarounds): Disabled
+
+*   allowETCFormats (OpenGL workarounds): Disabled
+
+*   alwaysCallUseProgramAfterLink (OpenGL workarounds): Enabled
+
+*   alwaysUnbindFramebufferTexture2D (OpenGL workarounds): Enabled
+
+*   avoid1BitAlphaTextureFormats (OpenGL workarounds): Disabled
+
+*   avoidBindFragDataLocation (OpenGL workarounds): Disabled
+
+*   bgraTexImageFormatsBroken (OpenGL workarounds): Disabled
+
+*   bindCompleteFramebufferForTimerQueries (OpenGL workarounds): Disabled
+
+*   bindTransformFeedbackBufferBeforeBindBufferRange (OpenGL workarounds): Disabled
+
+*   clampArrayAccess (OpenGL workarounds): Disabled
+
+*   clampFragDepth (OpenGL workarounds): Enabled
+
+*   clampMscRate (OpenGL workarounds): Enabled
+
+*   clampPointSize (OpenGL workarounds): Enabled
+
+*   clearToZeroOrOneBroken (OpenGL workarounds): Disabled
+
+*   clearsWithGapsNeedFlush (OpenGL workarounds): Disabled
+
+*   clipSrcRegionForBlitFramebuffer (OpenGL workarounds): Disabled
+
+*   corruptProgramBinaryForTesting (OpenGL workarounds): Disabled
+
+*   decodeEncodeSRGBForGenerateMipmap (OpenGL workarounds): Disabled
+
+*   disableBaseInstanceVertex (OpenGL workarounds): Disabled
+
+*   disableBlendEquationAdvanced (OpenGL workarounds): Disabled
+
+*   disableBlendFuncExtended (OpenGL workarounds): Disabled
+
+*   disableClipControl (OpenGL features): Disabled
+
+*   disableDrawBuffersIndexed (OpenGL workarounds): Disabled
+
+*   disableGPUSwitchingSupport (OpenGL workarounds): Disabled
+
+*   disableMultisampledRenderToTexture (OpenGL workarounds): Disabled
+
+*   disableNativeParallelCompile (OpenGL workarounds): Disabled
+
+*   disableRenderSnorm (OpenGL workarounds): Disabled
+
+*   disableSemaphoreFd (OpenGL workarounds): Disabled
+
+*   disableSyncControlSupport (OpenGL workarounds): Disabled
+
+*   disableTextureClampToBorder (OpenGL workarounds): Disabled
+
+*   disableTextureMirrorClampToEdge (OpenGL workarounds): Disabled
+
+*   disableTiledRendering (OpenGL workarounds): Disabled
+
+*   disableTimestampQueries (OpenGL workarounds): Disabled
+
+*   doWhileGLSLCausesGPUHang (OpenGL workarounds): Disabled
+
+*   doesSRGBClearsOnLinearFramebufferAttachments (OpenGL workarounds): Disabled
+
+*   dontInitializeUninitializedLocals (OpenGL workarounds): Disabled
+
+*   dontUseLoopsToInitializeVariables (OpenGL workarounds): Disabled
+
+*   emulateAbsIntFunction (OpenGL workarounds): Disabled
+
+*   emulateAtan2Float (OpenGL workarounds): Enabled
+
+*   emulateClipDistanceState (OpenGL workarounds): Disabled
+
+*   emulateClipOrigin (OpenGL workarounds): Disabled
+
+*   emulateCopyTexImage2D (OpenGL workarounds): Disabled
+
+*   emulateCopyTexImage2DFromRenderbuffers (OpenGL workarounds): Disabled
+
+*   emulateImmutableCompressedTexture3D (OpenGL workarounds): Disabled
+
+*   emulateIsnanFloat (OpenGL workarounds): Disabled
+
+*   emulateMaxVertexAttribStride (OpenGL workarounds): Disabled
+
+*   emulatePackSkipRowsAndPackSkipPixels (OpenGL workarounds): Disabled
+
+*   emulatePrimitiveRestartFixedIndex (OpenGL workarounds): Disabled
+
+*   emulateRGB10 (OpenGL workarounds): Disabled
+
+*   ensureNonEmptyBufferIsBoundForDraw (OpenGL features): Disabled
+
+*   explicitFragmentLocations (OpenGL workarounds): Disabled
+
+*   finishDoesNotCauseQueriesToBeAvailable (OpenGL workarounds): Disabled
+
+*   flushBeforeDeleteTextureIfCopiedTo (OpenGL workarounds): Disabled
+
+*   flushOnFramebufferChange (OpenGL workarounds): Disabled
+
+*   forceMaxCombinedShaderOutputResources (OpenGL features): Enabled
+
+*   initFragmentOutputVariables (OpenGL workarounds): Disabled
+
+*   initializeCurrentVertexAttributes (OpenGL workarounds): Enabled
+
+*   keepBufferShadowCopy (OpenGL workarounds): Disabled
+
+*   limitMax3dArrayTextureSizeTo1024 (OpenGL workarounds): Disabled
+
+*   limitMaxMSAASamplesTo4 (OpenGL workarounds): Disabled
+
+*   limitWebglMaxTextureSizeTo4096 (OpenGL workarounds): Disabled
+
+*   limitWebglMaxTextureSizeTo8192 (OpenGL workarounds): Disabled
+
+*   packLastRowSeparatelyForPaddingInclusion (OpenGL workarounds): Enabled
+
+*   packOverlappingRowsSeparatelyPackBuffer (OpenGL workarounds): Enabled
+
+*   passHighpToPackUnormSnormBuiltins (OpenGL workarounds): Disabled
+
+*   preAddTexelFetchOffsets (OpenGL workarounds): Disabled
+
+*   preTransformTextureCubeGradDerivatives (OpenGL workarounds): Disabled
+
+*   promotePackedFormatsTo8BitPerChannel (OpenGL workarounds): Disabled
+
+*   queryCounterBitsGeneratesErrors (OpenGL workarounds): Disabled
+
+*   readPixelsUsingImplementationColorReadFormatForNorm16 (OpenGL workarounds): Enabled
+
+*   reapplyUBOBindingsAfterUsingBinaryProgram (OpenGL workarounds): Disabled
+
+*   regenerateStructNames (OpenGL workarounds): Disabled
+
+*   removeDynamicIndexingOfSwizzledVector (OpenGL workarounds): Disabled
+
+*   removeInvariantAndCentroidForESSL3 (OpenGL workarounds): Disabled
+
+*   resetSampleCoverageOnFBOChange (OpenGL workarounds): Disabled
+
+*   resetTexImage2DBaseLevel (OpenGL workarounds): Disabled
+
+*   resyncDepthRangeOnClipControl (OpenGL workarounds): Disabled
+
+*   rewriteFloatUnaryMinusOperator (OpenGL workarounds): Disabled
+
+*   rewriteRepeatedAssignToSwizzled (OpenGL workarounds): Enabled
+
+*   rewriteRowMajorMatrices (OpenGL workarounds): Disabled
+
+*   sanitizeAMDGPURendererString (OpenGL workarounds): Disabled
+
+*   scalarizeVecAndMatConstructorArgs (OpenGL workarounds): Enabled
+
+*   setPrimitiveRestartFixedIndexForDrawArrays (OpenGL workarounds): Disabled
+
+*   setZeroLevelBeforeGenerateMipmap (OpenGL workarounds): Disabled
+
+*   shiftInstancedArrayDataWithOffset (OpenGL workarounds): Disabled
+
+*   srgbBlendingBroken (OpenGL workarounds): Disabled
+
+*   supportsFragmentShaderInterlockARB (OpenGL features): Disabled
+
+*   supportsFragmentShaderInterlockNV (OpenGL features): Disabled
+
+*   supportsFragmentShaderOrderingINTEL (OpenGL features): Disabled
+
+*   supportsShaderFramebufferFetchEXT (OpenGL features): Disabled
+
+*   supportsShaderFramebufferFetchNonCoherentEXT (OpenGL features): Disabled
+
+*   syncAllVertexArraysToDefault (OpenGL workarounds): Disabled
+
+*   syncDefaultVertexArraysToDefault (OpenGL workarounds): Disabled
+
+*   unbindFBOBeforeSwitchingContext (OpenGL workarounds): Disabled
+
+*   unfoldShortCircuits (OpenGL workarounds): Disabled
+
+*   unpackLastRowSeparatelyForPaddingInclusion (OpenGL workarounds): Enabled
+
+*   unpackOverlappingRowsSeparatelyUnpackBuffer (OpenGL workarounds): Enabled
+
+*   unsizedSRGBReadPixelsDoesntTransform (OpenGL workarounds): Disabled
+
+*   uploadTextureDataInChunks (OpenGL workarounds): Disabled
+
+*   useIntermediateTextureForGenerateMipmap (OpenGL workarounds): Disabled
+
+*   useUnusedBlocksWithStandardOrSharedLayout (OpenGL workarounds): Disabled
+
+*   vertexIDDoesNotIncludeBaseVertex (OpenGL workarounds): Disabled
+
+Dawn Info
+=========
+
+<Unknown GPU>  OpenGLES backend - ANGLE (NVIDIA Corporation, NVIDIA GeForce GTX 1660 SUPER/PCIe/SSE2, OpenGL ES 3.2 NVIDIA 595.71.05) (Compatibility Mode)
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+[WebGPU Status]
+---------------
+*   Available
+
+[Adapter Supported Features]
+----------------------------
+*   texture-compression-bc
+*   texture-compression-etc2
+*   texture-compression-astc
+*   float32blendable
+*   dual-source-blending
+*   dawn-internal-usages
+*   dawn-native
+*   implicit-device-synchronization
+*   angle-texture-sharing
+*   unorm16texture-formats
+*   snorm16texture-formats
+*   dawn-format-capabilities
+*   norm16texture-formats
+*   shared-fence-sync-fd
+*   shared-fence-egl-sync
+
+[Enabled Toggle Names]
+----------------------
+*   lazy_clear_resource_on_first_use: 
+    (https://crbug.com/dawn/145):
+    Clears resource to zero on first usage. This initializes the resource so
+    that no dirty bits from recycled memory is present in the new resource.
+
+*   disable_indexed_draw_buffers: 
+    (https://crbug.com/dawn/582):
+    Disables the use of indexed draw buffer state which is unsupported on some
+    platforms.
+
+*   flush_before_client_wait_sync: 
+    (https://crbug.com/dawn/633):
+    Call glFlush before glClientWaitSync to work around bugs in the latter
+
+*   disallow_spirv: 
+    (https://crbug.com/1214923):
+    Disallow usage of SPIR-V completely so that only WGSL is used for shader
+    modules. This is useful to prevent a Chromium renderer process from
+    successfully sending SPIR-V code to be compiled in the GPU process.
+
+*   use_placeholder_fragment_in_vertex_only_pipeline: 
+    (https://crbug.com/dawn/136):
+    Use a placeholder empty fragment shader in vertex only render pipeline.
+    This toggle must be enabled for OpenGL ES backend, the Vulkan Backend, and
+    serves as a workaround by default enabled on some Metal devices with Intel
+    GPU to ensure the depth result is correct.
+
+*   timestamp_quantization: 
+    (https://crbug.com/dawn/1800):
+    Enable timestamp queries quantization to reduce the precision of timers
+    that can be created with timestamp queries.
+
+*   use_blit_for_buffer_to_stencil_texture_copy: 
+    (https://crbug.com/dawn/1389):
+    Use a blit instead of a copy command to copy buffer data to the stencil
+    aspect of a texture. Works around an issue where stencil writes by copy
+    commands are not visible to a render or compute pass.
+
+*   use_blit_for_depth16unorm_texture_to_buffer_copy: 
+    (https://crbug.com/dawn/1782):
+    Use a blit instead of a copy command to copy depth aspect of a texture to
+    a buffer.Workaround for OpenGL and OpenGLES.
+
+*   use_blit_for_depth32float_texture_to_buffer_copy: 
+    (https://crbug.com/dawn/1782):
+    Use a blit instead of a copy command to copy depth aspect of a texture to
+    a buffer.Workaround for OpenGLES.
+
+*   use_blit_for_stencil_texture_to_buffer_copy: 
+    (https://crbug.com/dawn/1782):
+    Use a blit instead of a copy command to copy stencil aspect of a texture
+    to a buffer.Workaround for OpenGLES.
+
+*   use_blit_for_snorm_texture_to_buffer_copy: 
+    (https://crbug.com/dawn/1781):
+    Use a blit instead of a copy command to copy snorm texture to a
+    buffer.Workaround for OpenGLES.
+
+*   use_blit_for_rgb9e5ufloat_texture_copy: 
+    (https://crbug.com/dawn/2079):
+    Use a blit instead of a copy command to copy rgb9e5ufloat texture to a
+    texture or a buffer.Workaround for OpenGLES.
+
+*   gl_use_array_length_from_uniform: 
+    (https://crbug.com/dawn/379805731):
+    Use arrayLengthFromUniform transform to replace arrayLength() function
+    calls of dynamic storage buffers.This toggle is only used for workarounds
+    on certain devices. It has no impact on backends which need this transform
+    universally (metal, d3d12)
+
+*   use_t2b2t_for_srgb_texture_copy: 
+    (https://crbug.com/dawn/2362):
+    Use T2B and B2T copies to emulate a T2T copy between sRGB and non-sRGB
+    textures.Workaround for OpenGLES.
+
+[WebGPU Required Toggles - enabled]
+-----------------------------------
+*   disallow_spirv: 
+    (https://crbug.com/1214923):
+    Disallow usage of SPIR-V completely so that only WGSL is used for shader
+    modules. This is useful to prevent a Chromium renderer process from
+    successfully sending SPIR-V code to be compiled in the GPU process.
+
+*   timestamp_quantization: 
+    (https://crbug.com/dawn/1800):
+    Enable timestamp queries quantization to reduce the precision of timers
+    that can be created with timestamp queries.
+
+<Discrete GPU>  Vulkan backend - NVIDIA GeForce GTX 1660 SUPER
+--------------------------------------------------------------
+
+[WebGPU Status]
+---------------
+*   Available
+
+[Adapter Supported Features]
+----------------------------
+*   depth-clip-control
+*   depth32float-stencil8
+*   timestamp-query
+*   texture-compression-bc
+*   indirect-first-instance
+*   rg11b10ufloat-renderable
+*   bgra8unorm-storage
+*   float32filterable
+*   float32blendable
+*   clip-distances
+*   dual-source-blending
+*   subgroups
+*   core-features-and-limits
+*   dawn-internal-usages
+*   dawn-multi-planar-formats
+*   dawn-native
+*   implicit-device-synchronization
+*   transient-attachments
+*   unorm16texture-formats
+*   snorm16texture-formats
+*   adapter-properties-memory-heaps
+*   adapter-properties-vk
+*   dawn-format-capabilities
+*   dawn-drm-format-capabilities
+*   norm16texture-formats
+*   shared-texture-memory-dma-buf
+*   shared-texture-memory-opaque-fd
+*   shared-fence-vk-semaphore-opaque-fd
+*   shared-fence-sync-fd
+*   dawn-load-resolve-texture
+*   flexible-texture-views
+
+[Enabled Toggle Names]
+----------------------
+*   lazy_clear_resource_on_first_use: 
+    (https://crbug.com/dawn/145):
+    Clears resource to zero on first usage. This initializes the resource so
+    that no dirty bits from recycled memory is present in the new resource.
+
+*   use_temporary_buffer_in_texture_to_texture_copy: 
+    (https://crbug.com/dawn/42):
+    Split texture-to-texture copy into two copies: copy from source texture
+    into a temporary buffer, and copy from the temporary buffer into the
+    destination texture when copying between compressed textures that don't
+    have block-aligned sizes. This workaround is enabled by default on all
+    Vulkan drivers to solve an issue in the Vulkan SPEC about the
+    texture-to-texture copies with compressed formats. See #1005
+    (https://github.com/KhronosGroup/Vulkan-Docs/issues/1005) for more
+    details.
+
+*   vulkan_use_d32s8: 
+    (https://crbug.com/dawn/286):
+    Vulkan mandates support of either D32_FLOAT_S8 or D24_UNORM_S8. When
+    available the backend will use D32S8 (toggle to on) but setting the toggle
+    to off will make it use the D24S8 format when possible.
+
+*   vulkan_use_s8: 
+    (https://crbug.com/dawn/666):
+    Vulkan has a pure stencil8 format but it is not universally available.
+    When this toggle is on, the backend will use S8 for the stencil8 format,
+    otherwise it will fallback to D32S8 or D24S8.
+
+*   disallow_spirv: 
+    (https://crbug.com/1214923):
+    Disallow usage of SPIR-V completely so that only WGSL is used for shader
+    modules. This is useful to prevent a Chromium renderer process from
+    successfully sending SPIR-V code to be compiled in the GPU process.
+
+*   vulkan_use_demote_to_helper_invocation_extension: 
+    (https://crbug.com/42250787):
+    Sets the use of the vulkan demote to helper extension
+
+*   use_placeholder_fragment_in_vertex_only_pipeline: 
+    (https://crbug.com/dawn/136):
+    Use a placeholder empty fragment shader in vertex only render pipeline.
+    This toggle must be enabled for OpenGL ES backend, the Vulkan Backend, and
+    serves as a workaround by default enabled on some Metal devices with Intel
+    GPU to ensure the depth result is correct.
+
+*   timestamp_quantization: 
+    (https://crbug.com/dawn/1800):
+    Enable timestamp queries quantization to reduce the precision of timers
+    that can be created with timestamp queries.
+
+*   use_vulkan_zero_initialize_workgroup_memory_extension: 
+    (https://crbug.com/dawn/1302):
+    Initialize workgroup memory with OpConstantNull on Vulkan when the Vulkan
+    extension VK_KHR_zero_initialize_workgroup_memory is supported.
+
+*   vulkan_use_image_robust_access_2: 
+    (https://crbug.com/tint/1890):
+    Disable Tint robustness transform on textures when VK_EXT_robustness2 is
+    supported and robustImageAccess2 == VK_TRUE.
+
+*   vulkan_use_buffer_robust_access_2: 
+    (https://crbug.com/tint/1890):
+    Disable index clamping on the runtime-sized arrays on buffers in Tint
+    robustness transform when VK_EXT_robustness2 is supported and
+    robustBufferAccess2 == VK_TRUE.
+
+[WebGPU Required Toggles - enabled]
+-----------------------------------
+*   disallow_spirv: 
+    (https://crbug.com/1214923):
+    Disallow usage of SPIR-V completely so that only WGSL is used for shader
+    modules. This is useful to prevent a Chromium renderer process from
+    successfully sending SPIR-V code to be compiled in the GPU process.
+
+*   timestamp_quantization: 
+    (https://crbug.com/dawn/1800):
+    Enable timestamp queries quantization to reduce the precision of timers
+    that can be created with timestamp queries.
+
+<CPU>  Vulkan backend - llvmpipe (LLVM 22.1.5, 256 bits)
+--------------------------------------------------------
+
+[WebGPU Status]
+---------------
+*   Blocklisted - crbug.com/40057808: CPU adapters not fully tested or conformant.
+
+[Adapter Supported Features]
+----------------------------
+*   depth-clip-control
+*   depth32float-stencil8
+*   timestamp-query
+*   texture-compression-bc
+*   indirect-first-instance
+*   shader-f16
+*   rg11b10ufloat-renderable
+*   bgra8unorm-storage
+*   float32filterable
+*   float32blendable
+*   clip-distances
+*   dual-source-blending
+*   subgroups
+*   core-features-and-limits
+*   dawn-internal-usages
+*   dawn-multi-planar-formats
+*   dawn-native
+*   implicit-device-synchronization
+*   transient-attachments
+*   unorm16texture-formats
+*   adapter-properties-memory-heaps
+*   adapter-properties-vk
+*   dawn-format-capabilities
+*   dawn-drm-format-capabilities
+*   shared-texture-memory-dma-buf
+*   shared-texture-memory-opaque-fd
+*   shared-fence-sync-fd
+*   dawn-load-resolve-texture
+*   flexible-texture-views
+
+[Enabled Toggle Names]
+----------------------
+*   lazy_clear_resource_on_first_use: 
+    (https://crbug.com/dawn/145):
+    Clears resource to zero on first usage. This initializes the resource so
+    that no dirty bits from recycled memory is present in the new resource.
+
+*   use_temporary_buffer_in_texture_to_texture_copy: 
+    (https://crbug.com/dawn/42):
+    Split texture-to-texture copy into two copies: copy from source texture
+    into a temporary buffer, and copy from the temporary buffer into the
+    destination texture when copying between compressed textures that don't
+    have block-aligned sizes. This workaround is enabled by default on all
+    Vulkan drivers to solve an issue in the Vulkan SPEC about the
+    texture-to-texture copies with compressed formats. See #1005
+    (https://github.com/KhronosGroup/Vulkan-Docs/issues/1005) for more
+    details.
+
+*   vulkan_use_d32s8: 
+    (https://crbug.com/dawn/286):
+    Vulkan mandates support of either D32_FLOAT_S8 or D24_UNORM_S8. When
+    available the backend will use D32S8 (toggle to on) but setting the toggle
+    to off will make it use the D24S8 format when possible.
+
+*   vulkan_use_s8: 
+    (https://crbug.com/dawn/666):
+    Vulkan has a pure stencil8 format but it is not universally available.
+    When this toggle is on, the backend will use S8 for the stencil8 format,
+    otherwise it will fallback to D32S8 or D24S8.
+
+*   disallow_spirv: 
+    (https://crbug.com/1214923):
+    Disallow usage of SPIR-V completely so that only WGSL is used for shader
+    modules. This is useful to prevent a Chromium renderer process from
+    successfully sending SPIR-V code to be compiled in the GPU process.
+
+*   vulkan_use_demote_to_helper_invocation_extension: 
+    (https://crbug.com/42250787):
+    Sets the use of the vulkan demote to helper extension
+
+*   use_placeholder_fragment_in_vertex_only_pipeline: 
+    (https://crbug.com/dawn/136):
+    Use a placeholder empty fragment shader in vertex only render pipeline.
+    This toggle must be enabled for OpenGL ES backend, the Vulkan Backend, and
+    serves as a workaround by default enabled on some Metal devices with Intel
+    GPU to ensure the depth result is correct.
+
+*   timestamp_quantization: 
+    (https://crbug.com/dawn/1800):
+    Enable timestamp queries quantization to reduce the precision of timers
+    that can be created with timestamp queries.
+
+*   use_vulkan_zero_initialize_workgroup_memory_extension: 
+    (https://crbug.com/dawn/1302):
+    Initialize workgroup memory with OpConstantNull on Vulkan when the Vulkan
+    extension VK_KHR_zero_initialize_workgroup_memory is supported.
+
+*   vulkan_use_image_robust_access_2: 
+    (https://crbug.com/tint/1890):
+    Disable Tint robustness transform on textures when VK_EXT_robustness2 is
+    supported and robustImageAccess2 == VK_TRUE.
+
+*   vulkan_use_buffer_robust_access_2: 
+    (https://crbug.com/tint/1890):
+    Disable index clamping on the runtime-sized arrays on buffers in Tint
+    robustness transform when VK_EXT_robustness2 is supported and
+    robustBufferAccess2 == VK_TRUE.
+
+[WebGPU Required Toggles - enabled]
+-----------------------------------
+*   disallow_spirv: 
+    (https://crbug.com/1214923):
+    Disallow usage of SPIR-V completely so that only WGSL is used for shader
+    modules. This is useful to prevent a Chromium renderer process from
+    successfully sending SPIR-V code to be compiled in the GPU process.
+
+*   timestamp_quantization: 
+    (https://crbug.com/dawn/1800):
+    Enable timestamp queries quantization to reduce the precision of timers
+    that can be created with timestamp queries.
+
+<CPU>  Vulkan backend - SwiftShader Device (Subzero)
+----------------------------------------------------
+
+[WebGPU Status]
+---------------
+*   Blocklisted - crbug.com/40057808: CPU adapters not fully tested or conformant.
+
+[Adapter Supported Features]
+----------------------------
+*   depth-clip-control
+*   depth32float-stencil8
+*   timestamp-query
+*   texture-compression-bc
+*   texture-compression-etc2
+*   texture-compression-astc
+*   indirect-first-instance
+*   rg11b10ufloat-renderable
+*   bgra8unorm-storage
+*   float32filterable
+*   float32blendable
+*   clip-distances
+*   subgroups
+*   core-features-and-limits
+*   dawn-internal-usages
+*   dawn-multi-planar-formats
+*   dawn-native
+*   implicit-device-synchronization
+*   transient-attachments
+*   unorm16texture-formats
+*   adapter-properties-memory-heaps
+*   adapter-properties-vk
+*   dawn-format-capabilities
+*   shared-texture-memory-opaque-fd
+*   shared-fence-vk-semaphore-opaque-fd
+*   dawn-load-resolve-texture
+*   flexible-texture-views
+
+[Enabled Toggle Names]
+----------------------
+*   lazy_clear_resource_on_first_use: 
+    (https://crbug.com/dawn/145):
+    Clears resource to zero on first usage. This initializes the resource so
+    that no dirty bits from recycled memory is present in the new resource.
+
+*   use_temporary_buffer_in_texture_to_texture_copy: 
+    (https://crbug.com/dawn/42):
+    Split texture-to-texture copy into two copies: copy from source texture
+    into a temporary buffer, and copy from the temporary buffer into the
+    destination texture when copying between compressed textures that don't
+    have block-aligned sizes. This workaround is enabled by default on all
+    Vulkan drivers to solve an issue in the Vulkan SPEC about the
+    texture-to-texture copies with compressed formats. See #1005
+    (https://github.com/KhronosGroup/Vulkan-Docs/issues/1005) for more
+    details.
+
+*   vulkan_use_d32s8: 
+    (https://crbug.com/dawn/286):
+    Vulkan mandates support of either D32_FLOAT_S8 or D24_UNORM_S8. When
+    available the backend will use D32S8 (toggle to on) but setting the toggle
+    to off will make it use the D24S8 format when possible.
+
+*   vulkan_use_s8: 
+    (https://crbug.com/dawn/666):
+    Vulkan has a pure stencil8 format but it is not universally available.
+    When this toggle is on, the backend will use S8 for the stencil8 format,
+    otherwise it will fallback to D32S8 or D24S8.
+
+*   disallow_spirv: 
+    (https://crbug.com/1214923):
+    Disallow usage of SPIR-V completely so that only WGSL is used for shader
+    modules. This is useful to prevent a Chromium renderer process from
+    successfully sending SPIR-V code to be compiled in the GPU process.
+
+*   vulkan_use_demote_to_helper_invocation_extension: 
+    (https://crbug.com/42250787):
+    Sets the use of the vulkan demote to helper extension
+
+*   use_placeholder_fragment_in_vertex_only_pipeline: 
+    (https://crbug.com/dawn/136):
+    Use a placeholder empty fragment shader in vertex only render pipeline.
+    This toggle must be enabled for OpenGL ES backend, the Vulkan Backend, and
+    serves as a workaround by default enabled on some Metal devices with Intel
+    GPU to ensure the depth result is correct.
+
+*   timestamp_quantization: 
+    (https://crbug.com/dawn/1800):
+    Enable timestamp queries quantization to reduce the precision of timers
+    that can be created with timestamp queries.
+
+*   use_vulkan_zero_initialize_workgroup_memory_extension: 
+    (https://crbug.com/dawn/1302):
+    Initialize workgroup memory with OpConstantNull on Vulkan when the Vulkan
+    extension VK_KHR_zero_initialize_workgroup_memory is supported.
+
+[WebGPU Required Toggles - enabled]
+-----------------------------------
+*   disallow_spirv: 
+    (https://crbug.com/1214923):
+    Disallow usage of SPIR-V completely so that only WGSL is used for shader
+    modules. This is useful to prevent a Chromium renderer process from
+    successfully sending SPIR-V code to be compiled in the GPU process.
+
+*   timestamp_quantization: 
+    (https://crbug.com/dawn/1800):
+    Enable timestamp queries quantization to reduce the precision of timers
+    that can be created with timestamp queries.
+
+Compositor Information
+======================
+Tile Update Mode: One-copy
+Partial Raster  : Disabled
+
+GpuMemoryBuffers Status
+=======================
+R_8               : CAMERA_AND_CPU_READ_WRITE, SCANOUT_CPU_READ_WRITE, SCANOUT_FRONT_RENDERING
+R_16              : Software only
+RG_88             : Software only
+RG_1616           : Software only
+BGR_565           : GPU_READ
+RGBA_4444         : Software only
+RGBX_8888         : GPU_READ, SCANOUT, SCANOUT_CPU_READ_WRITE, SCANOUT_FRONT_RENDERING
+RGBA_8888         : GPU_READ, SCANOUT, SCANOUT_CPU_READ_WRITE, SCANOUT_FRONT_RENDERING
+BGRX_8888         : GPU_READ, SCANOUT, SCANOUT_CPU_READ_WRITE, SCANOUT_FRONT_RENDERING
+BGRA_1010102      : SCANOUT, SCANOUT_CPU_READ_WRITE, SCANOUT_FRONT_RENDERING
+RGBA_1010102      : SCANOUT, SCANOUT_CPU_READ_WRITE, SCANOUT_FRONT_RENDERING
+BGRA_8888         : GPU_READ, SCANOUT, SCANOUT_CPU_READ_WRITE, SCANOUT_FRONT_RENDERING
+RGBA_F16          : Software only
+YVU_420           : Software only
+YUV_420_BIPLANAR  : SCANOUT_CAMERA_READ_WRITE, SCANOUT_CPU_READ_WRITE, SCANOUT_VEA_CPU_READ, SCANOUT_FRONT_RENDERING, VEA_READ_CAMERA_AND_CPU_READ_WRITE
+YUVA_420_TRIPLANAR: Software only
+P010              : Software only
+
+Display(s) Information
+======================
+Info                          : Display[64] bounds=[0,0 2560x1440], workarea=[0,0 2560x1440], scale=1, rotation=0, panel_rotation=0 external detected
+Color space (all)             : {primaries:BT709, transfer:SRGB, matrix:RGB, range:FULL}
+Buffer format (all)           : RGBA_8888
+Color volume                  : {name:'srgb', r:[0.6400, 0.3300], g:[0.3000, 0.6000], b:[0.1500, 0.0600], w:[0.3127, 0.3290]}
+SDR white level in nits       : 203
+HDR relative maximum luminance: 1
+Bits per color component      : 8
+Bits per pixel                : 24
+
+Video Acceleration Information
+==============================
+Decoding: 
+Encoding:
+
+Vulkan Information
+==================
+
+Device Performance Information
+==============================
+
+Log Messages
+============
+[44249:44249:0602/174034.728045:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.728101:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.728147:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174034.728422:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: InsertFenceSync
+[44249:44249:0602/174034.733704:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174034.733844:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kRasterCHROMIUM
+[44249:44249:0602/174034.734027:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.734083:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.734128:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174034.734416:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: InsertFenceSync
+[44249:44249:0602/174034.739776:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174034.739895:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kRasterCHROMIUM
+[44249:44249:0602/174034.740060:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.740121:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.740177:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174034.740455:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: InsertFenceSync
+[44249:44249:0602/174034.745833:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174034.745914:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kRasterCHROMIUM
+[44249:44249:0602/174034.746069:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.746125:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.746170:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174034.746455:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: InsertFenceSync
+[44249:44249:0602/174034.751914:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174034.752009:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kRasterCHROMIUM
+[44249:44249:0602/174034.752186:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.752242:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.752286:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174034.752572:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: InsertFenceSync
+[44249:44249:0602/174034.757982:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174034.758057:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kRasterCHROMIUM
+[44249:44249:0602/174034.758243:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.758297:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.758341:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174034.758614:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: InsertFenceSync
+[44249:44249:0602/174034.764202:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174034.764309:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kRasterCHROMIUM
+[44249:44249:0602/174034.764485:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.764542:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.764586:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174034.764926:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: InsertFenceSync
+[44249:44249:0602/174034.770107:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174034.770214:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kRasterCHROMIUM
+[44249:44249:0602/174034.770405:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.770460:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.770504:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174034.770785:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: InsertFenceSync
+[44249:44249:0602/174034.776119:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174034.776187:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kRasterCHROMIUM
+[44249:44249:0602/174034.776366:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.776427:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.776474:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174034.776789:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: InsertFenceSync
+[44249:44249:0602/174034.782250:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174034.782367:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kRasterCHROMIUM
+[44249:44249:0602/174034.782547:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.782603:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.782649:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174034.782936:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: InsertFenceSync
+[44249:44249:0602/174034.788243:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174034.788327:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kRasterCHROMIUM
+[44249:44249:0602/174034.788484:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.788542:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.788587:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174034.788876:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: InsertFenceSync
+[44249:44249:0602/174034.794299:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174034.794407:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kRasterCHROMIUM
+[44249:44249:0602/174034.794577:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.794635:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.794679:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174034.794988:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: InsertFenceSync
+[44249:44249:0602/174034.800553:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174034.800656:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kRasterCHROMIUM
+[44249:44249:0602/174034.800847:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.800905:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.800950:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174034.801222:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: InsertFenceSync
+[44249:44249:0602/174034.806596:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174034.806714:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kRasterCHROMIUM
+[44249:44249:0602/174034.806895:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.806962:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.807009:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174034.807283:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: InsertFenceSync
+[44249:44249:0602/174034.812603:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174034.812711:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kRasterCHROMIUM
+[44249:44249:0602/174034.812902:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.812964:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.813011:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174034.813285:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: InsertFenceSync
+[44249:44249:0602/174034.818657:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174034.818762:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kRasterCHROMIUM
+[44249:44249:0602/174034.818950:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.819008:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.819051:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174034.819359:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: InsertFenceSync
+[44249:44249:0602/174034.824718:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174034.824861:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kRasterCHROMIUM
+[44249:44249:0602/174034.825020:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.825077:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.825122:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174034.825394:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: InsertFenceSync
+[44249:44249:0602/174034.830713:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174034.830826:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kRasterCHROMIUM
+[44249:44249:0602/174034.831011:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.831067:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.831112:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174034.831391:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: InsertFenceSync
+[44249:44249:0602/174034.836730:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174034.836855:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kRasterCHROMIUM
+[44249:44249:0602/174034.837028:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.837084:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.837129:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174034.837407:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: InsertFenceSync
+[44249:44249:0602/174034.843036:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174034.843124:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kRasterCHROMIUM
+[44249:44249:0602/174034.843288:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.843354:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.843419:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174034.843695:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: InsertFenceSync
+[44249:44249:0602/174034.849039:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174034.849121:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kRasterCHROMIUM
+[44249:44249:0602/174034.849268:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.849325:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.849368:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174034.849649:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: InsertFenceSync
+[44249:44249:0602/174034.855157:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174034.855265:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kRasterCHROMIUM
+[44249:44249:0602/174034.855446:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.855503:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.855547:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174034.855831:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: InsertFenceSync
+[44249:44249:0602/174034.861078:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174034.861193:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kRasterCHROMIUM
+[44249:44249:0602/174034.861375:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.861448:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.861495:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174034.861767:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: InsertFenceSync
+[44249:44249:0602/174034.867005:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174034.867103:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kRasterCHROMIUM
+[44249:44249:0602/174034.867261:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.867316:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.867360:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174034.867632:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: InsertFenceSync
+[44249:44249:0602/174034.873138:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174034.873246:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kRasterCHROMIUM
+[44249:44249:0602/174034.873419:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.873475:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.873519:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174034.873791:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: InsertFenceSync
+[44249:44249:0602/174034.879106:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174034.879228:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kRasterCHROMIUM
+[44249:44249:0602/174034.879397:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.879452:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.879497:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174034.879787:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: InsertFenceSync
+[44249:44249:0602/174034.885196:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174034.885296:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kRasterCHROMIUM
+[44249:44249:0602/174034.885465:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.885521:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.885565:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174034.885847:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: InsertFenceSync
+[44249:44249:0602/174034.891495:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174034.891600:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kRasterCHROMIUM
+[44249:44249:0602/174034.891778:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.891845:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.891891:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174034.892173:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: InsertFenceSync
+[44249:44249:0602/174034.897381:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174034.897513:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kRasterCHROMIUM
+[44249:44249:0602/174034.897680:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.897737:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.897780:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174034.898075:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: InsertFenceSync
+[44249:44249:0602/174034.903547:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174034.903644:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kRasterCHROMIUM
+[44249:44249:0602/174034.903820:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.903880:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.903974:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174034.904266:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: InsertFenceSync
+[44249:44249:0602/174034.909696:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174034.909827:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kRasterCHROMIUM
+[44249:44249:0602/174034.909994:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.910051:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.910097:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174034.910374:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: InsertFenceSync
+[44249:44249:0602/174034.915636:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174034.915749:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kRasterCHROMIUM
+[44249:44249:0602/174034.915927:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.915984:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.916030:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174034.916314:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: InsertFenceSync
+[44249:44249:0602/174034.921713:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174034.921847:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kRasterCHROMIUM
+[44249:44249:0602/174034.921997:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.922055:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.922100:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174034.922402:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: InsertFenceSync
+[44249:44249:0602/174034.927731:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174034.927864:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kRasterCHROMIUM
+[44249:44249:0602/174034.928022:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.928078:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.928122:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174034.928394:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: InsertFenceSync
+[44249:44249:0602/174034.933760:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174034.933902:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kRasterCHROMIUM
+[44249:44249:0602/174034.934052:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.934108:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.934153:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174034.934425:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: InsertFenceSync
+[44249:44249:0602/174034.939928:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174034.940011:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kRasterCHROMIUM
+[44249:44249:0602/174034.940204:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.940260:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.940305:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174034.940597:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: InsertFenceSync
+[44249:44249:0602/174034.946110:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174034.946231:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kRasterCHROMIUM
+[44249:44249:0602/174034.946411:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.946465:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.946559:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174034.946862:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: InsertFenceSync
+[44249:44249:0602/174034.952078:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174034.952188:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kRasterCHROMIUM
+[44249:44249:0602/174034.952371:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.952426:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.952489:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174034.952815:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: InsertFenceSync
+[44249:44249:0602/174034.958018:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174034.958108:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kRasterCHROMIUM
+[44249:44249:0602/174034.958265:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.958322:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.958366:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174034.958648:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: InsertFenceSync
+[44249:44249:0602/174034.963990:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174034.964076:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kRasterCHROMIUM
+[44249:44249:0602/174034.964316:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.964383:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.964433:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174034.964717:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: InsertFenceSync
+[44249:44249:0602/174034.970064:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174034.970201:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kRasterCHROMIUM
+[44249:44249:0602/174034.970406:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.970465:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.970512:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174034.970816:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: InsertFenceSync
+[44249:44249:0602/174034.976262:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174034.976373:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kRasterCHROMIUM
+[44249:44249:0602/174034.976565:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.976620:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.976664:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174034.976951:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: InsertFenceSync
+[44249:44249:0602/174034.982334:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174034.982435:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kRasterCHROMIUM
+[44249:44249:0602/174034.982623:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.982678:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.982721:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174034.983015:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: InsertFenceSync
+[44249:44249:0602/174034.988409:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174034.988527:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kRasterCHROMIUM
+[44249:44249:0602/174034.988696:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.988751:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.988801:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174034.989085:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: InsertFenceSync
+[44249:44249:0602/174034.994566:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174034.994661:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kRasterCHROMIUM
+[44249:44249:0602/174034.994834:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.994891:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174034.994937:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174034.995213:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: InsertFenceSync
+[44249:44249:0602/174035.000643:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174035.000715:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kRasterCHROMIUM
+[44249:44249:0602/174035.000886:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174035.000946:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174035.001005:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174035.001271:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: InsertFenceSync
+[44249:44249:0602/174035.006699:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174035.006831:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kRasterCHROMIUM
+[44249:44249:0602/174035.006992:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174035.007049:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174035.007093:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174035.007377:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: InsertFenceSync
+[44249:44249:0602/174035.019177:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174035.019265:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kRasterCHROMIUM
+[44249:44249:0602/174035.019470:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174035.019531:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: SetToken
+[44249:44249:0602/174035.019617:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174035.019922:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: InsertFenceSync
+[44249:44249:0602/174035.020073:ERROR:gpu/command_buffer/service/gles2_cmd_decoder_passthrough.cc:717] : [.WebGL-0x2a9c03c66200]cmd: kDeleteTexturesImmediate
+[44249:44249:0602/174035.020256:ERROR:gpu/command_buffer/service/gles2_cmd_decoder_passthrough.cc:717] : [.WebGL-0x2a9c03c66200]cmd: kDeleteTexturesImmediate
+[44249:44249:0602/174035.020317:ERROR:gpu/command_buffer/service/gles2_cmd_decoder_passthrough.cc:717] : [.WebGL-0x2a9c03c66200]cmd: kFlushDriverCachesCHROMIUM
+[44249:44249:0602/174035.020371:ERROR:gpu/command_buffer/service/gles2_cmd_decoder_passthrough.cc:717] : [.WebGL-0x2a9c03c66200]cmd: kFlush
+[44249:44249:0602/174035.020876:ERROR:gpu/command_buffer/service/gles2_cmd_decoder_passthrough.cc:717] : [.WebGL-0x2a9c03c66200]cmd: kContextVisibilityHintCHROMIUM
+[44249:44249:0602/174035.020944:ERROR:gpu/command_buffer/service/gles2_cmd_decoder_passthrough.cc:717] : [.WebGL-0x2a9c03c66200]cmd: kFlush
+[44249:44249:0602/174035.021083:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kDeleteTransferCacheEntryINTERNAL
+[44249:44249:0602/174035.021153:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kDeleteTransferCacheEntryINTERNAL
+[44249:44249:0602/174035.021209:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kDeleteTransferCacheEntryINTERNAL
+[44249:44249:0602/174035.021264:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kDeleteTransferCacheEntryINTERNAL
+[44249:44249:0602/174035.021318:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kDeleteTransferCacheEntryINTERNAL
+[44249:44249:0602/174035.021369:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kClearPaintCacheINTERNAL
+[44249:44249:0602/174035.021475:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000aba00]cmd: kFlush
+[44249:44249:0602/174035.021856:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174035.022167:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: kRasterCHROMIUM
+[44249:44249:0602/174035.022310:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: SetToken
+[44249:44249:0602/174035.022368:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: SetToken
+[44249:44249:0602/174035.022493:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: kRasterCHROMIUM
+[44249:44249:0602/174035.022572:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: SetToken
+[44249:44249:0602/174035.022621:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: SetToken
+[44249:44249:0602/174035.022665:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174035.023135:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: InsertFenceSync
+[44249:44249:0602/174035.023311:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174035.023544:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: kRasterCHROMIUM
+[44249:44249:0602/174035.023630:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: SetToken
+[44249:44249:0602/174035.023682:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174035.023915:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: InsertFenceSync
+[44249:44249:0602/174035.024069:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174035.024297:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: kRasterCHROMIUM
+[44249:44249:0602/174035.024386:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: SetToken
+[44249:44249:0602/174035.024437:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: SetToken
+[44249:44249:0602/174035.024481:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174035.024983:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: InsertFenceSync
+[44249:44249:0602/174035.025205:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174035.025486:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: kRasterCHROMIUM
+[44249:44249:0602/174035.025633:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: SetToken
+[44249:44249:0602/174035.025688:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: SetToken
+[44249:44249:0602/174035.025747:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174035.026058:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: InsertFenceSync
+[44249:44249:0602/174035.026243:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174035.026494:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: kRasterCHROMIUM
+[44249:44249:0602/174035.026583:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: SetToken
+[44249:44249:0602/174035.026654:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: SetToken
+[44249:44249:0602/174035.026729:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174035.026999:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: InsertFenceSync
+[44249:44249:0602/174035.027224:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174035.027525:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: kRasterCHROMIUM
+[44249:44249:0602/174035.027752:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: SetToken
+[44249:44249:0602/174035.027854:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: SetToken
+[44249:44249:0602/174035.027919:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174035.028195:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: InsertFenceSync
+[44249:44249:0602/174035.028291:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.028354:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.028537:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.028622:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.028721:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.028815:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.028898:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: Noop
+[44249:44249:0602/174035.028961:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.029007:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.029182:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.029262:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.029323:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.029390:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.029467:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: Noop
+[44249:44249:0602/174035.029533:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.029603:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.029807:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.029876:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.029925:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.029980:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.030048:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: Noop
+[44249:44249:0602/174035.030105:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.030152:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.030322:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.030395:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.030441:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.030487:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.030558:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: Noop
+[44249:44249:0602/174035.030607:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.030673:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.030839:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.030915:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.030964:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.031016:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.031112:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: Noop
+[44249:44249:0602/174035.031169:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kGenQueriesEXTImmediate
+[44249:44249:0602/174035.031213:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.031257:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.031420:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.031492:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.031570:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.031633:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.031700:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: Noop
+[44249:44249:0602/174035.031755:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.031828:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.032000:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.032060:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.032105:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.032151:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.032237:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: Noop
+[44249:44249:0602/174035.032291:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kGenQueriesEXTImmediate
+[44249:44249:0602/174035.032336:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.032397:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.032568:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.032627:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.032673:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.032718:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.032812:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: Noop
+[44249:44249:0602/174035.032869:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kGenQueriesEXTImmediate
+[44249:44249:0602/174035.032913:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.032958:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.033102:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.033163:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.033219:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.033267:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.033336:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: Noop
+[44249:44249:0602/174035.033388:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.033434:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.033588:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.033649:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.033696:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.033744:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.033836:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: Noop
+[44249:44249:0602/174035.033894:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kGenQueriesEXTImmediate
+[44249:44249:0602/174035.033942:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.033990:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.034152:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.034213:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.034261:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.034310:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.034380:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: Noop
+[44249:44249:0602/174035.034431:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.034478:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.034638:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.034697:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.034745:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.034799:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.034919:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.WebGL-0x2a9c000aae00]cmd: SetToken
+[44249:44249:0602/174035.034979:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.WebGL-0x2a9c000aae00]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174035.035188:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.WebGL-0x2a9c000aae00]cmd: kRasterCHROMIUM
+[44249:44249:0602/174035.035256:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.WebGL-0x2a9c000aae00]cmd: SetToken
+[44249:44249:0602/174035.035306:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.WebGL-0x2a9c000aae00]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174035.035430:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.WebGL-0x2a9c000aae00]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174035.035529:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.WebGL-0x2a9c000aae00]cmd: kCreateTransferCacheEntryINTERNAL
+[44249:44249:0602/174035.035664:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.WebGL-0x2a9c000aae00]cmd: SetToken
+[44249:44249:0602/174035.035727:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.WebGL-0x2a9c000aae00]cmd: kRasterCHROMIUM
+[44249:44249:0602/174035.035811:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.WebGL-0x2a9c000aae00]cmd: SetToken
+[44249:44249:0602/174035.035869:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.WebGL-0x2a9c000aae00]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174035.036068:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.WebGL-0x2a9c000aae00]cmd: kUnlockTransferCacheEntryINTERNAL
+[44249:44249:0602/174035.036131:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.WebGL-0x2a9c000aae00]cmd: InsertFenceSync
+[44249:44249:0602/174035.036181:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.WebGL-0x2a9c000aae00]cmd: kReadbackARGBImagePixelsINTERNALImmediate
+[44249:44249:0602/174035.036907:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174035.037206:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: kRasterCHROMIUM
+[44249:44249:0602/174035.037380:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: SetToken
+[44249:44249:0602/174035.037434:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: SetToken
+[44249:44249:0602/174035.037478:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174035.037938:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: InsertFenceSync
+[44249:44249:0602/174035.039568:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.WebGL-0x2a9c000aae00]cmd: SetToken
+[44249:44249:0602/174035.039648:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.WebGL-0x2a9c000aae00]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174035.039903:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.WebGL-0x2a9c000aae00]cmd: kRasterCHROMIUM
+[44249:44249:0602/174035.039992:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.WebGL-0x2a9c000aae00]cmd: SetToken
+[44249:44249:0602/174035.040057:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.WebGL-0x2a9c000aae00]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174035.040231:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.WebGL-0x2a9c000aae00]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174035.040346:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.WebGL-0x2a9c000aae00]cmd: kCreateTransferCacheEntryINTERNAL
+[44249:44249:0602/174035.040474:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.WebGL-0x2a9c000aae00]cmd: SetToken
+[44249:44249:0602/174035.040555:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.WebGL-0x2a9c000aae00]cmd: kRasterCHROMIUM
+[44249:44249:0602/174035.040622:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.WebGL-0x2a9c000aae00]cmd: SetToken
+[44249:44249:0602/174035.040674:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.WebGL-0x2a9c000aae00]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174035.040871:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.WebGL-0x2a9c000aae00]cmd: kUnlockTransferCacheEntryINTERNAL
+[44249:44249:0602/174035.040942:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.WebGL-0x2a9c000aae00]cmd: InsertFenceSync
+[44249:44249:0602/174035.041008:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.WebGL-0x2a9c000aae00]cmd: kReadbackARGBImagePixelsINTERNALImmediate
+[44249:44249:0602/174035.041485:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.041600:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.041775:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.041849:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.041899:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.041947:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.042335:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174035.042635:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: kRasterCHROMIUM
+[44249:44249:0602/174035.042822:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: SetToken
+[44249:44249:0602/174035.042881:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: SetToken
+[44249:44249:0602/174035.042928:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174035.043229:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: InsertFenceSync
+[44249:44249:0602/174035.046670:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.046744:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.046949:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.047032:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.047083:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.047129:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.047192:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: Noop
+[44249:44249:0602/174035.047242:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.047286:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.047387:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.047442:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.047487:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.047575:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.051468:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.051556:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.051656:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.051712:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.051758:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.051811:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.051877:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: Noop
+[44249:44249:0602/174035.051927:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.051972:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.052073:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.052138:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.052196:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.052251:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.110784:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kDeleteQueriesEXTImmediate
+[44249:44249:0602/174035.110907:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kDeleteQueriesEXTImmediate
+[44249:44249:0602/174035.134938:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kDeleteQueriesEXTImmediate
+[44249:44249:0602/174035.135087:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kDeleteQueriesEXTImmediate
+[44249:44249:0602/174035.277607:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.277739:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.277899:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.277964:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.278012:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.278061:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.278126:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: Noop
+[44249:44249:0602/174035.278178:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.278224:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.278399:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.278461:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.278507:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.278552:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.278615:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: Noop
+[44249:44249:0602/174035.278667:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.278714:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.278880:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.278943:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.278990:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.279043:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.297702:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.297856:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.297989:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.298049:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.298097:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.298146:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.298212:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: Noop
+[44249:44249:0602/174035.298262:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.298307:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.298424:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.298482:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.298525:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.298570:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.303489:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.303624:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.303761:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.303827:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.303878:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.303926:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.304005:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: Noop
+[44249:44249:0602/174035.304057:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.304103:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.304278:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.304338:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.304382:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.304426:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.304487:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: Noop
+[44249:44249:0602/174035.304537:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.304580:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.304751:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.304818:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.304865:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.304912:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.304976:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: Noop
+[44249:44249:0602/174035.305024:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.305071:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.305222:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.305283:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.305341:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.305385:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.316015:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.316163:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.316292:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.316359:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.316406:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.316454:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.316518:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: Noop
+[44249:44249:0602/174035.316569:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.316614:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.316722:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.316779:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.316835:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.316882:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.321681:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.321804:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.321923:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.321984:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.322032:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.322080:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.322160:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: Noop
+[44249:44249:0602/174035.322217:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.322305:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.322466:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.322529:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.322576:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.322623:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.322687:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: Noop
+[44249:44249:0602/174035.322736:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.322782:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.322973:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.323037:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.323084:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.323131:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.323192:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: Noop
+[44249:44249:0602/174035.323242:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.323288:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.323429:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.323490:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.323535:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.323581:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.333998:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.334112:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.334274:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.334333:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.334379:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.334425:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.334488:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: Noop
+[44249:44249:0602/174035.334538:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.334582:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.334687:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.334752:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.334804:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.334866:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.339712:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.339800:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.339932:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.339992:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.340038:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.340086:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.340150:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: Noop
+[44249:44249:0602/174035.340201:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.340244:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.340333:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.340388:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.340431:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.340475:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.340535:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: Noop
+[44249:44249:0602/174035.340583:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.340627:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.340713:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.340766:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.340816:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.340863:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.340937:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: Noop
+[44249:44249:0602/174035.340985:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.341028:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.341114:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.341175:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.341215:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.341254:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.352314:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.352442:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.352562:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.352621:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.352668:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.352713:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.352776:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: Noop
+[44249:44249:0602/174035.352839:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.352885:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.352989:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.353047:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.353091:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.353139:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.357968:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.358049:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.358199:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.358261:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.358307:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.358353:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.358421:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: Noop
+[44249:44249:0602/174035.358470:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.358514:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.358605:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.358669:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.358725:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.358772:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.358843:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: Noop
+[44249:44249:0602/174035.358892:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.358936:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.359023:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.359079:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.359123:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.359171:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.359230:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: Noop
+[44249:44249:0602/174035.359278:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.359323:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.359413:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.359468:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.359513:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.359558:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.370573:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.370686:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.370858:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.370923:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.370970:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.371017:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.371083:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: Noop
+[44249:44249:0602/174035.371134:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.371178:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.371294:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.371347:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.371390:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.371434:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.376205:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.376310:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.376420:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.376481:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.376540:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.376613:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.376718:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: Noop
+[44249:44249:0602/174035.376774:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.376853:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.376985:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.377063:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.377150:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.377232:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.377324:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: Noop
+[44249:44249:0602/174035.377380:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.377438:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.377552:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.377614:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.377659:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.377706:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.377771:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: Noop
+[44249:44249:0602/174035.377829:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.377875:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.377964:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.378017:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.378059:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.378103:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.388618:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.388721:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.388932:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.388993:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.389038:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.389084:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.389169:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: Noop
+[44249:44249:0602/174035.389220:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.389276:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.389401:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.389459:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.389510:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.389554:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.394159:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.394248:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.394362:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.394448:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.394518:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.394583:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.394659:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: Noop
+[44249:44249:0602/174035.394709:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.394754:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.394886:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.394950:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.394998:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.395061:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.395162:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: Noop
+[44249:44249:0602/174035.395221:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.395279:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.395398:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.395460:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.395530:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.395604:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.395682:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: Noop
+[44249:44249:0602/174035.395746:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.395799:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.395920:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.395980:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.396027:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.396097:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.406619:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.406736:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.406895:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.406962:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.407010:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.407059:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.407134:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: Noop
+[44249:44249:0602/174035.407184:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.407229:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.407334:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.407387:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.407465:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.407543:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.424900:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.424984:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.425155:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.425222:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.425280:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.425342:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.425430:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: Noop
+[44249:44249:0602/174035.425490:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.425550:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.425659:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.425710:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.425753:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.425815:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.444035:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.444122:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.444287:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.444353:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.444400:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.444447:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.444512:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: Noop
+[44249:44249:0602/174035.444563:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.444608:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.444707:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.444761:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.444816:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.444864:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.461266:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.461351:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.461474:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.461544:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.461595:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.461671:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.461751:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: Noop
+[44249:44249:0602/174035.461808:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.461857:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.461956:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.462024:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.462082:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.462162:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.479371:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.479472:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.479609:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.479676:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.479734:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.479798:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.479873:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: Noop
+[44249:44249:0602/174035.479928:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.479980:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.480089:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.480145:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.480193:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.480257:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.597283:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174035.597501:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: kRasterCHROMIUM
+[44249:44249:0602/174035.597658:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: SetToken
+[44249:44249:0602/174035.597710:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: SetToken
+[44249:44249:0602/174035.597754:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174035.597989:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: InsertFenceSync
+[44249:44249:0602/174035.598055:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174035.598155:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: kRasterCHROMIUM
+[44249:44249:0602/174035.598298:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: SetToken
+[44249:44249:0602/174035.598347:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: SetToken
+[44249:44249:0602/174035.598388:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174035.598588:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: InsertFenceSync
+[44249:44249:0602/174035.598649:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174035.598744:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: kRasterCHROMIUM
+[44249:44249:0602/174035.598933:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: SetToken
+[44249:44249:0602/174035.598998:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: SetToken
+[44249:44249:0602/174035.599041:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174035.599212:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: InsertFenceSync
+[44249:44249:0602/174035.599273:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174035.599368:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: kRasterCHROMIUM
+[44249:44249:0602/174035.599523:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: SetToken
+[44249:44249:0602/174035.599573:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: SetToken
+[44249:44249:0602/174035.599616:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174035.599950:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: InsertFenceSync
+[44249:44249:0602/174035.600402:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174035.600532:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: kRasterCHROMIUM
+[44249:44249:0602/174035.600714:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: SetToken
+[44249:44249:0602/174035.600817:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: SetToken
+[44249:44249:0602/174035.600868:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174035.601134:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: InsertFenceSync
+[44249:44249:0602/174035.989913:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174035.990145:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: kRasterCHROMIUM
+[44249:44249:0602/174035.990305:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: SetToken
+[44249:44249:0602/174035.990362:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: SetToken
+[44249:44249:0602/174035.990407:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174035.990661:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: InsertFenceSync
+[44249:44249:0602/174035.994627:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174035.994723:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174035.994859:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174035.994923:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174035.994970:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174035.995015:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174036.030022:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kDeleteQueriesEXTImmediate
+[44249:44249:0602/174036.031414:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kDeleteQueriesEXTImmediate
+[44249:44249:0602/174036.270542:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174036.270681:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174036.270833:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174036.270899:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174036.270948:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174036.270997:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174036.271060:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: Noop
+[44249:44249:0602/174036.271110:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174036.271155:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174036.271275:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174036.271335:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174036.271381:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174036.271428:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174036.271522:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: Noop
+[44249:44249:0602/174036.271578:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kGenQueriesEXTImmediate
+[44249:44249:0602/174036.271629:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174036.271676:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174036.271869:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174036.271934:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174036.271980:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174036.272033:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174036.272106:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: Noop
+[44249:44249:0602/174036.272156:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174036.272204:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174036.272358:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174036.272421:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174036.272474:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174036.272523:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174036.272589:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: Noop
+[44249:44249:0602/174036.272640:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174036.272689:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174036.272831:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174036.272890:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174036.272936:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174036.273038:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174036.273130:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: Noop
+[44249:44249:0602/174036.273185:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174036.273233:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174036.273420:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174036.273489:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174036.273535:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174036.273582:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174036.273646:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: Noop
+[44249:44249:0602/174036.273697:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174036.273743:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174036.273932:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174036.274052:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174036.274106:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174036.274157:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174036.274234:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: Noop
+[44249:44249:0602/174036.274286:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174036.274334:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174036.274485:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174036.274548:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174036.274612:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174036.274660:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174036.274748:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: Noop
+[44249:44249:0602/174036.274808:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kGenQueriesEXTImmediate
+[44249:44249:0602/174036.274861:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174036.274908:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174036.275077:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174036.275138:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174036.275184:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174036.275233:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174036.279338:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: kBeginRasterCHROMIUMImmediate
+[44249:44249:0602/174036.279524:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: kRasterCHROMIUM
+[44249:44249:0602/174036.279606:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: SetToken
+[44249:44249:0602/174036.279672:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: kEndRasterCHROMIUM
+[44249:44249:0602/174036.279837:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.RenderWorker-0x2a9c000a4200]cmd: InsertFenceSync
+[44249:44249:0602/174036.283511:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174036.283629:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174036.283832:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174036.283901:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174036.283950:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174036.283999:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174036.284066:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: Noop
+[44249:44249:0602/174036.284141:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174036.284210:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174036.284379:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174036.284442:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174036.284492:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174036.284539:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174036.284620:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: Noop
+[44249:44249:0602/174036.284676:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174036.284721:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174036.284864:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174036.284932:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174036.284979:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174036.285047:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174036.285118:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: Noop
+[44249:44249:0602/174036.285170:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174036.285216:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174036.285404:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174036.285479:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174036.285549:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174036.285626:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174036.285706:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: Noop
+[44249:44249:0602/174036.285760:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174036.285817:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174036.286021:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174036.286104:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174036.286155:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174036.286205:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174036.286272:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: Noop
+[44249:44249:0602/174036.286324:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174036.286391:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174036.286552:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174036.286615:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174036.286661:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174036.286708:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174036.286806:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: Noop
+[44249:44249:0602/174036.286864:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174036.286916:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174036.287074:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174036.287135:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174036.287199:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174036.287259:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174036.287420:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: Noop
+[44249:44249:0602/174036.287480:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174036.287528:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174036.287858:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174036.287926:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174036.287979:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174036.288040:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174036.288527:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: Noop
+[44249:44249:0602/174036.288602:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kBeginQueryEXT
+[44249:44249:0602/174036.288662:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kCopySharedImageINTERNALImmediate
+[44249:44249:0602/174036.288953:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: kEndQueryEXT
+[44249:44249:0602/174036.289020:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: SetToken
+[44249:44249:0602/174036.289067:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync
+[44249:44249:0602/174036.289116:ERROR:gpu/command_buffer/service/raster_decoder.cc:1518] : [.BrowserWorker-0x324c09954580]cmd: InsertFenceSync

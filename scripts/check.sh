@@ -53,12 +53,18 @@ done
 
 echo ""
 echo "=== Thorium Browser ==="
-[[ -f "$HOME/.config/thorium-flags.conf" ]] && check "Thorium flags file" "found at $HOME/.config/thorium-flags.conf" || warn "Thorium ~/.config/thorium-flags.conf not found"
+[[ -f "$HOME/.config/thorium/thorium-flags.conf" ]] && check "Thorium flags file" "found at $HOME/.config/thorium/thorium-flags.conf" || warn "Thorium ~/.config/thorium/thorium-flags.conf not found"
 thorium_desktop=""
 if [[ -d "$HOME/.local/share/applications" ]]; then
     thorium_desktop=$(find "$HOME/.local/share/applications" -maxdepth 1 \( -iname '*thorium*.desktop' -o -iname '*Thorium*.desktop' \) 2>/dev/null | head -1) || true
 fi
-[[ -n "$thorium_desktop" ]] && check "Thorium user .desktop" "found at $thorium_desktop" || warn "No user Thorium .desktop override (optional if flags are set elsewhere)"
+if [[ -n "$thorium_desktop" ]] && grep -q '^Exec=.*--ozone-platform' "$thorium_desktop" 2>/dev/null; then
+    warn "User Thorium .desktop still embeds CLI flags (prefer conf-only): $thorium_desktop"
+elif [[ -n "$thorium_desktop" ]]; then
+    check "Thorium user .desktop" "found at $thorium_desktop (no embedded flags)"
+else
+    check "Thorium launcher" "system .desktop + conf file (no user override)"
+fi
 
 echo ""
 echo "=== System Info ==="

@@ -233,70 +233,52 @@ configure_thorium_browser() {
     
     local uh
     uh="$(real_user_home)"
-    local out="$uh/.config/thorium-flags.conf"
+    local out="$uh/.config/thorium/thorium-flags.conf"
+    local stale_out="$uh/.config/thorium-flags.conf"
     
     if [[ "$DRY_RUN" == true ]]; then
         log_dry "Would write stripped flags to: $out"
+        log_dry "Would ensure tmpfs cache dir: /tmp/thorium-cache"
+        [[ -f "$stale_out" ]] && log_dry "Would remove stale flags file: $stale_out"
     else
-        mkdir -p "$uh/.config"
+        mkdir -p "$uh/.config/thorium"
         grep -v '^[[:space:]]*#' "$src" | grep -v '^[[:space:]]*$' | sed 's/^[[:space:]]*//' > "$out"
+        mkdir -p /tmp/thorium-cache
         log_info "Installed Thorium flags list: $out"
+        log_info "Ensured cache directory: /tmp/thorium-cache"
+        if [[ -f "$stale_out" ]]; then
+            backup_file "$stale_out"
+            rm -f "$stale_out"
+            log_info "Removed stale flags file (wrong path): $stale_out"
+        fi
     fi
     
-    # Optional: user .desktop override so flags are passed at launch (RPM/COPR vary)
-    local sys_desktop=""
+    # Wrapper /usr/bin/thorium-browser reads $XDG_CONFIG_HOME/thorium/thorium-flags.conf only.
+    # Drop user .desktop overrides that duplicated flags in Exec= (system .desktop is enough).
+    local user_desktop=""
     local f
-    for f in /usr/share/applications/*thorium*.desktop /usr/share/applications/*Thorium*.desktop; do
+    for f in "$uh/.local/share/applications/"*thorium*.desktop "$uh/.local/share/applications/"*Thorium*.desktop; do
         [[ -f "$f" ]] || continue
-        sys_desktop="$f"
+        user_desktop="$f"
         break
     done
     
-    if [[ -z "$sys_desktop" ]]; then
-        log_warn "No Thorium .desktop found in /usr/share/applications — merge flags from $out into your launcher manually"
-        log_info "See: $PROJECT_ROOT/configs/README.md (Thorium section)"
+    if [[ -z "$user_desktop" ]]; then
+        log_info "No user Thorium .desktop override — system launcher + $out is sufficient"
         return 0
     fi
     
-    local exec_line binary first_word flag_str
-    exec_line=$(grep '^Exec=' "$sys_desktop" | head -1 | sed 's/^Exec=//')
-    read -r first_word _ <<< "$exec_line"
-    if [[ "$first_word" == /* ]]; then
-        binary="$first_word"
-    else
-        binary=$(command -v "$first_word" 2>/dev/null || echo "$first_word")
-    fi
-    if [[ -z "$binary" ]]; then
-        log_warn "Could not parse binary from Exec= in $sys_desktop; only $out was written"
-        return 0
-    fi
-    
-    flag_str=$(grep -v '^[[:space:]]*#' "$src" | grep -v '^[[:space:]]*$' | sed 's/^[[:space:]]*//' | paste -sd' ' -)
-    
-    local user_desktop="$uh/.local/share/applications/$(basename "$sys_desktop")"
-    local tmp
-    tmp=$(mktemp)
-    
-    if [[ "$DRY_RUN" == true ]]; then
-        log_dry "Would write user .desktop override: $user_desktop (from $sys_desktop)"
-        rm -f "$tmp"
-        return 0
-    fi
-    
-    local replaced=0
-    while IFS= read -r line || [[ -n "${line:-}" ]]; do
-        if [[ $replaced -eq 0 && "$line" == Exec=* ]]; then
-            printf 'Exec=%s %s %%U\n' "$binary" "$flag_str"
-            replaced=1
+    if grep -q '^Exec=.*--ozone-platform' "$user_desktop" 2>/dev/null; then
+        if [[ "$DRY_RUN" == true ]]; then
+            log_dry "Would remove user .desktop override (flags live in conf only): $user_desktop"
         else
-            printf '%s\n' "$line"
+            backup_file "$user_desktop"
+            rm -f "$user_desktop"
+            log_info "Removed user .desktop override (flags are in $out only): $user_desktop"
         fi
-    done < "$sys_desktop" > "$tmp"
-    
-    mkdir -p "$uh/.local/share/applications"
-    backup_file "$user_desktop"
-    mv "$tmp" "$user_desktop"
-    log_info "Installed user .desktop override: $user_desktop"
+    else
+        log_info "User .desktop override kept (no CLI flags in Exec=): $user_desktop"
+    fi
 }
 
 # =============================================================================
@@ -345,7 +327,7 @@ main() {
     log_warn "Next steps:"
     log_warn "  1. Run: sudo grub2-mkconfig -o /boot/grub2/grub.cfg"
     log_warn "  2. Reboot the system"
-    log_warn "  3. Verify Zen Browser user.js and Thorium flags / .desktop (if needed)"
+    log_warn "  3. Verify Zen Browser user.js and Thorium flags in ~/.config/thorium/thorium-flags.conf"
 }
 
 # Install only Thorium flags + user .desktop (no root). Optional: second arg --dry-run
@@ -365,7 +347,7 @@ thorium_only_main() {
         log_info "Backup directory: $BACKUP_DIR"
     fi
     configure_thorium_browser
-    log_info "Done. Restart Thorium from the app menu (or log out/in) so the .desktop override is picked up."
+    log_info "Done. Fully quit Thorium and launch from the app menu; flags load from ~/.config/thorium/thorium-flags.conf via the wrapper."
 }
 
 case "${1:-}" in

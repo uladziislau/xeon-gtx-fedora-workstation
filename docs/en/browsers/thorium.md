@@ -48,6 +48,16 @@ Shared goals on your system:
 - **Xeon E5-2696 v3:** raster throughput is scaled with `--num-raster-threads`; JS/network parallelism is handled internally. There is no “Xeon” or “AVX2” toggle in the UI.
 - **64 GB RAM, 4×16 GB DDR4-2133 (quad channel):** the browser **does not** see DIMM topology—there is no quad-channel flag. What helps is a **larger cache** (`--disk-cache-size`, optional tmpfs path; see commented block in `flags.conf`).
 
+> [!WARNING]
+> **Danger of manual experiments in `chrome://flags`:**
+> Enabling certain options via the `chrome://flags` GUI (which are saved in the profile's `Local State` file) can severely degrade performance.
+> 
+> * **`enable-gpu-service-logging`** — **never enable this**. It forces logging of every single GPU command to stderr. In heavy WebGL apps like Yandex/Google Maps where thousands of GPU calls happen per second, this floods system logs and introduces massive rendering stutter and UI lag.
+> * **`gpu-rasterization-msaa-sample-count`** — do not set this to `16`. This forces the GPU to rasterize 2D tiles with 16x MSAA, which at 1440p 165Hz on a GTX 1660 SUPER completely exhausts memory bandwidth, causing heavy scrolling lag.
+> * **`skia-graphite`** — the experimental Skia Graphite engine is unstable on Linux + NVIDIA OpenGL (ANGLE) backend, leading to stutters and crashes.
+> 
+> **Recommendation:** For maximum smoothness, open `chrome://flags`, click **"Reset all"** in the top right, and restart Thorium. All optimized settings from `flags.conf` will continue to apply via CLI flags.
+
 Touch **chrome://flags** only for experiments **not** covered by the CLI, and change **one at a time** so you can bisect regressions.
 
 ---
@@ -59,9 +69,9 @@ Canonical lists (one line = one argv token; lines starting with `#` are **not** 
 * **[flags.conf](../../../configs/thorium-browser/flags.conf)** — English comments; consumed by [`scripts/optimize.sh`](../../../scripts/optimize.sh).
 * **[flags.ru.conf](../../../configs/thorium-browser/flags.ru.conf)** — same active flags, Russian comments for reading.
 
-The default **active** block includes Wayland, ANGLE (GL), VA-API, **ParallelDownloading**, AV1 disabled, GPU raster, **8** raster threads (good fit for many-core CPUs), and a **6 GB-class** VRAM hint for the 1660 SUPER. More aggressive options (`--disable-gpu-driver-bug-workarounds`, `--enable-zero-copy`, HDR) stay **commented out**—uncomment after you validate on your driver.
+The default **active** block includes Wayland, ANGLE (GL), VA-API with **`VaapiIgnoreDriverChecks`**, **ParallelDownloading**, AV1 disabled, **partial raster disabled** (`--disable-partial-raster`, aligned with Zen’s scroll fix), safe video frames (`--disable-gpu-memory-buffer-video-frames`), GPU raster, **12** raster threads, **16** renderer processes, **6 GB-class** VRAM hint, and **tmpfs-backed** disk/media caches (16 GB / 8 GB) under `/tmp/thorium-cache`. More aggressive options (`--disable-gpu-driver-bug-workarounds`, `--enable-zero-copy`, background throttling off, HDR) stay **commented out**—uncomment after you validate on your driver.
 
-**Install:** `sudo ./scripts/optimize.sh` writes `~/.config/thorium-flags.conf` (comments stripped) and, if a system Thorium `.desktop` exists under `/usr/share/applications/`, a user override in `~/.local/share/applications/` with an updated `Exec=` line. Some builds ignore the conf file; the `.desktop` override is the reliable path.
+**Install:** `sudo ./scripts/optimize.sh` writes `~/.config/thorium/thorium-flags.conf` and removes stale user `.desktop` overrides that duplicated flags. The `/usr/bin/thorium-browser` wrapper loads the conf file on every launch — keep `Exec=` in `.desktop` as plain `/usr/bin/thorium-browser %U`.
 
 **AV1:** Disabling `Av1VideoDecoder` matches Zen’s intent (`media.av1.enabled = false`): the GTX 1660 SUPER has **no** AV1 hardware decode; VP9 is the practical choice.
 
