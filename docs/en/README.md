@@ -36,9 +36,13 @@ Complete documentation for optimizing Fedora Workstation on Intel Xeon E5 v3 + N
 
 ## 📁 Configuration Files
 
-Browser configuration files are located in [`../../configs/zen-browser/`](../../configs/zen-browser/):
-- `user.js` - Zen Browser configuration (English comments)
-- `user.ru.js` - Zen Browser configuration (Russian comments)
+Browser configuration files are located in:
+- 🔴 **[Zen Browser](../../configs/zen-browser/)**:
+  - `user.js` - Zen Browser configuration (English comments)
+  - `user.ru.js` - Zen Browser configuration (Russian comments)
+- 🔵 **[Thorium Browser](../../configs/thorium-browser/)**:
+  - `flags.conf` - Thorium CLI flags (English comments; canonical for scripts)
+  - `flags.ru.conf` - Same flags, Russian comments (human reference)
 
 ---
 
