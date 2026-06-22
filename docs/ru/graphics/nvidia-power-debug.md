@@ -334,6 +334,47 @@ NVIDIA driver (`nvidia_drm.ko`) переопределяет ioctl handlers в D
 
 **GSP firmware автономно управляет P-state и не принимает внешних команд.**
 
+### 17. NVAPI: nvidia-pstate — прорыв (22.06.2026)
+
+Установлена Python-утилита `nvidia-pstate`, использующая **NVAPI**
+(`libnvidia-api.so.1`) — недокументированный приватный интерфейс NVIDIA,
+который идёт напрямую в kernel module в обход GSP firmware:
+
+```bash
+pip3 install nvidia_pstate
+nvidia-pstate -i 0 -ps 8   # принудительно P8
+nvidia-pstate -i 0 -ps 5   # P5 (рабочий баланс)
+nvidia-pstate -i 0 -ps 0   # вернуть P0 (max perf)
+```
+
+**Ключевой параметр `fallback=2`:** авто-буст при нагрузке. То есть P-state
+не залочен жёстко — GPU может подняться выше если нужно.
+
+**Реальные P-состояния GTX 1660 SUPER:**
+
+| Команда | Реальный | Ядро | Память | Мощность | Плавность |
+|---------|:--------:|:----:|:------:|:--------:|:---------:|
+| `-ps 8` | P8 | 645 MHz | **405 MHz** | **25W** | ❌ лаги |
+| `-ps 5` | **P5** | 645 MHz | **810 MHz** | **27W** | ✅ |
+| `-ps 3` | P3 | 705 MHz | 5000 MHz | 40W | ✅ |
+| `-ps 0` | P0 | 705 MHz | 7000 MHz | 44W | ✅ |
+
+P7/P6 = P8, P4 = P5, P1 = P2 (не уникальные состояния).
+
+**Автозапуск:** `~/.config/autostart/nvidia-pstate.desktop`
+
+**NVIDIA Bug #5474539** — подтверждённый бай NVIDIA (GTX 1080 Ti, P0 на Wayland
+KDE, август 2025). Причина: GSP firmware поднимает P-state при частых DRM
+atomic операциях. Решения пока нет.
+
+### 18. Выводы и план
+
+**Root cause:** KWin шлёт ~126 DRM_IOCTL_MODE_ATOMIC/sec через nvidia-drm.
+GSP firmware интерпретирует это как нагрузку и поднимает до P0.
+
+**Правильный фикс:** патч KWin — уменьшить количество atomic commits ниже
+порога (~110/sec). Задача на следующий этап.
+
 
 
 ## Команды для диагностики
