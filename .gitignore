@@ -26,3 +26,7 @@ Thumbs.db
 # Local configuration (if any)
 .env.local
 config.local.*
+
+# Project-specific build sources
+kwin-src/
+nvidia-open-src/
