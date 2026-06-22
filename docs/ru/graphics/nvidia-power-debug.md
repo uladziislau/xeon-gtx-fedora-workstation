@@ -1,6 +1,7 @@
 # Расследование энергопотребления NVIDIA GPU в простое
 
 **Дата:** 2026-06-21 — 2026-06-22
+**Решение найдено:** 2026-06-22 — LD_PRELOAD фильтр drmIoctl
 **Система:** Fedora 44 KDE, CachyOS 7.0.11, NVIDIA 595.58.03 (nvidia-open)
 **GPU:** GTX 1660 SUPER, 2560×1440 @ 165 Гц (DP-3)
 **Сессия:** Wayland (KWin 6.7.0) / X11
@@ -372,8 +373,104 @@ atomic операциях. Решения пока нет.
 **Root cause:** KWin шлёт ~126 DRM_IOCTL_MODE_ATOMIC/sec через nvidia-drm.
 GSP firmware интерпретирует это как нагрузку и поднимает до P0.
 
-**Правильный фикс:** патч KWin — уменьшить количество atomic commits ниже
+**Первоначальный план:** патч KWin — уменьшить количество atomic commits ниже
 порога (~110/sec). Задача на следующий этап.
+
+### 19. Финальное решение: LD_PRELOAD фильтр (22.06.2026)
+
+**Принцип:** KWin вызывает `drmIoctl()` 2 раза на кадр композитинга:
+1. `DRM_MODE_ATOMIC_TEST_ONLY` — проверка набора параметров
+2. `DRM_ATOMIC` (REAL) — фактическое переключение кадра
+
+Фильтр перехватывает `drmIoctl()` через `LD_PRELOAD` и подавляет TEST_ONLY
+коммиты, возвращая 0 (успех) без передачи в драйвер. REAL-коммиты проходят
+как есть. Итог: ~63 коммита/сек вместо ~126 → GSP не триггерит P0.
+
+**Архитектура:**
+```
+KWin ──drmIoctl()──→ [LD_PRELOAD: наш фильтр]
+                          │
+                ┌─────────┴───────────┐
+                │ DRM_ATOMIC          │
+                │ + TEST_ONLY         │──return 0
+                │ - ALLOW_MODESET?    │
+                └─────────┬───────────┘
+                          │ иначе → syscall(SYS_ioctl)
+                          │
+                  реальный драйвер nvidia-drm.ko
+```
+
+**Файлы:**
+- Фильтр: `~/Projects/nvidia-test-filter.c` (27 строк)
+- Бинарь: `~/Projects/nvidia-test-filter.so`
+- Системд: `~/.config/systemd/user/plasma-kwin_wayland.service.d/nvidia-test.conf`
+
+**Сборка:**
+```bash
+gcc -shared -fPIC -o ~/Projects/nvidia-test-filter.so \
+    ~/Projects/nvidia-test-filter.c -ldrm
+```
+
+**Установка:**
+```ini
+# ~/.config/systemd/user/plasma-kwin_wayland.service.d/nvidia-test.conf
+[Service]
+Environment=LD_PRELOAD=/home/uladzislau/Projects/nvidia-test-filter.so
+```
+
+**Результат (на десктопе без нагрузки, Wayland 165Hz):**
+
+| P-state | Ядро | Память | Мощность |
+|:-------:|:----:|:------:|:--------:|
+| P5/P8 | 405-645 MHz | 405-810 MHz | **21-27W** |
+| P3 | 960 MHz | 5000 MHz | ~37W |
+| P0 | 705+ MHz | 7000 MHz | **45-65W** |
+
+GPU динамически переключается между P5 (простой), P3 (средняя активность)
+и P0 (нагрузка). Буст работает — частота и память поднимаются при необходимости.
+
+**Важно:** `nvidia-pstate` не нужен и даже вреден — его `-ps 5` форсирует P5
+и блокирует буст. Достаточно сбросить: `nvidia-pstate -ps 16` (режим драйвера).
+
+**LD_PRELOAD vs обычный `dlsym(RTLD_NEXT)`:**
+Первая версия фильтра использовала `dlsym(RTLD_NEXT, "drmIoctl")` для вызова
+оригинальной функции — система зависала при входе в Wayland. Причина: конфликт
+символов с NVIDIA EGL/GLX библиотеками. Версия с `syscall(SYS_ioctl)` обходит
+libdrm полностью и работает стабильно.
+
+**Исходник фильтра:**
+```c
+#define _GNU_SOURCE
+#include <drm/drm.h>
+#include <drm/drm_mode.h>
+#include <errno.h>
+#include <sys/syscall.h>
+#include <unistd.h>
+
+static int real_ioctl(int fd, unsigned long request, void *arg)
+{
+    int ret;
+    do {
+        ret = syscall(SYS_ioctl, fd, request, arg);
+    } while (ret < 0 && errno == EINTR);
+    return ret;
+}
+
+int drmIoctl(int fd, unsigned long request, void *arg)
+{
+    if (request == DRM_IOCTL_MODE_ATOMIC) {
+        const struct drm_mode_atomic *data = (const struct drm_mode_atomic *)arg;
+        if ((data->flags & DRM_MODE_ATOMIC_TEST_ONLY) &&
+            !(data->flags & DRM_MODE_ATOMIC_ALLOW_MODESET)) {
+            return 0;
+        }
+    }
+    return real_ioctl(fd, request, arg);
+}
+```
+
+**NVIDIA Bug #5474539:** GSP firmware считает atomic commit rate загрузкой GPU.
+Фильтр — workaround. Ждём фикса от NVIDIA.
 
 
 
