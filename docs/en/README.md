@@ -9,6 +9,8 @@ Complete documentation for optimizing Fedora Workstation on Intel Xeon E5 v3 + N
 ### 🛠️ System Configuration
 - **[Core Setup](system/core-setup.md)** - Kernel parameters, GRUB configuration, and power management
 - **[CPU Schedulers](system/schedulers.md)** - Testing and comparison of sched-ext schedulers for 36-thread systems
+- **[Services & Bloat Audit](system/services-and-bloat.md)** - Removing unnecessary daemons, crash analysis, broken services cleanup
+- **[DNF Repository & Configuration Audit](system/dnf-audit.md)** - Dead repo cleanup, dnf.conf hardening
 
 ### 🎨 Graphics & Display
 - **[Graphics & Display](graphics/display.md)** - NVIDIA + Wayland + HDR configuration

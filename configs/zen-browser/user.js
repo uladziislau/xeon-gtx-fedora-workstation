@@ -62,9 +62,16 @@ user_pref("gfx.webrender.compositor.force-enabled", false);
 // -1 = let Wayland own UI scaling (DPI); avoids blur on HiDPI panels.
 user_pref("layout.css.devPixelsPerPx", "-1");
 
-// Strong subpixel AA in WebRender; keep font AA on.
-user_pref("gfx.webrender.quality.force-subpixel-aa-where-possible", true);
+// Disable subpixel (RGB) AA: gives uneven "ragged" glyphs over Wayland on NVIDIA.
+// Prefer clean grayscale AA (matches system fontconfig rgba=none).
+user_pref("gfx.webrender.quality.force-subpixel-aa-where-possible", false);
 user_pref("gfx.text.disable-aa", false);
+
+// Normalize fractional computed font sizes (no jitter in small-text cap heights).
+user_pref("font.size.deterministic", true);
+
+// Fine-grained interface font scale on ~109 DPI (wayland scale is integer, so nudge text up ~10%).
+user_pref("font.size.systemFontScale", 1.1);
 
 // Skia for all 2D content.
 user_pref("gfx.content.azure.backends", "skia");

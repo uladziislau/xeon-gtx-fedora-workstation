@@ -62,9 +62,16 @@ user_pref("gfx.webrender.compositor.force-enabled", false);
 // Значение "-1" делегирует масштаб интерфейса (DPI) напрямую Wayland, избегая мыла на мониторах с высоким разрешением.
 user_pref("layout.css.devPixelsPerPx", "-1");          
 
-// Форсирует субпиксельное сглаживание шрифтов в WebRender, делая текст максимально четким (без "лесенок").
-user_pref("gfx.webrender.quality.force-subpixel-aa-where-possible", true);
+// Отключаем субпиксельное (RGB) сглаживание: в связке Wayland+NVIDIA оно даёт "рваные", неоднородные глифы.
+// Используем чистое grayscale-сглаживание (согласовано с системным fontconfig rgba=none).
+user_pref("gfx.webrender.quality.force-subpixel-aa-where-possible", false);
 user_pref("gfx.text.disable-aa", false);
+
+// Нормализуем дробные вычисленные размеры шрифта (убирает дрожание высоты у мелкого текста).
+user_pref("font.size.deterministic", true);
+
+// Тонкая подстройка масштаба интерфейса на ~109 DPI (у Wayland целый scale — небольшая поправка вверх ~10%).
+user_pref("font.size.systemFontScale", 1.1);
 
 // Устанавливает библиотеку Skia в качестве главного бэкенда для отрисовки всех 2D-элементов.
 user_pref("gfx.content.azure.backends", "skia");

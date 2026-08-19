@@ -6,6 +6,22 @@
 
 ---
 
+## 🎯 Философия и Цель (Фокус проекта)
+
+> Этот проект — не просто свалка конфигов. Это **операционная система, собранная для одного человека** — для *себя*.
+
+**Цель:** максимально эффективная, компактная Fedora 44, собранная ровно из того, что нужно — ни больше, ни меньше.
+
+- 🧭 **Из чёрного ящика — под свой контроль.** ОС должна перестать быть загадкой. Каждый кусок понят, выбран осознанно и задокументирован.
+- 🧩 **Собранная, а не установленная.** Берём лучшие подходящие «кирпичики» (ядро, службы, пакеты, инструменты), остальное — вон.
+- 🗑️ **Устраняем лишнее.** Каждый ненужный модуль, демон, пакет или опция, что не служит замыслу, — удаляется или отключается, всегда с задокументированным способом отката.
+- ⚖️ **Эффективность вместо раздутости.** Сначала меряем, потом крутим: CPU, GPU, память, загрузка, диск, сеть. Не помогает — значит, не оставляем.
+- 🔁 **Воспроизводимо и задокументировано.** Любое изменение ложится в `docs/`, `configs/` или `scripts/`, чтобы систему можно было пересобрать с нуля так же.
+
+> **Держи фокус:** всё в этом репозитории должно служить *этой* машине (Xeon E5 v3, GTX 1660 SUPER, KDE Plasma 6, Wayland, 64 ГБ, 165 Гц) и *этой* цели — лёгкая, понятная, личная ОС.
+
+---
+
 ## 💻 Целевое железо
 
 | Компонент | Характеристики |
@@ -144,6 +160,8 @@ LIBVA_DRIVER_NAME=nvidia
 ### Быстрые ссылки (Русский)
 
 - **[Системные настройки](docs/ru/system/core-setup.md)** - Ядро, GRUB, управление питанием
+- **[Аудит служб и раздутости](docs/ru/system/services-and-bloat.md)** - Очистка демонов, анализ краша, сломанные службы
+- **[Аудит DNF репозиториев](docs/ru/system/dnf-audit.md)** - Мёртвые репо, закалка dnf.conf
 - **[Графика и дисплей](docs/ru/graphics/display.md)** - NVIDIA Wayland, HDR, шрифты
 - **[Zen Browser](docs/ru/browsers/zen.md)** - Конфигурация форка Firefox
 - **[Thorium Browser](docs/ru/browsers/thorium.md)** - Сборка Chromium с AVX2
@@ -153,6 +171,8 @@ LIBVA_DRIVER_NAME=nvidia
 ### Quick Links (English)
 
 - **[System Setup](docs/en/system/core-setup.md)** - Kernel, GRUB, power management
+- **[Services & Bloat Audit](docs/en/system/services-and-bloat.md)** - Daemon cleanup, crash analysis, broken services
+- **[DNF Repository Audit](docs/en/system/dnf-audit.md)** - Dead repo cleanup, dnf.conf hardening
 - **[Graphics & Display](docs/en/graphics/display.md)** - NVIDIA Wayland, HDR, fonts
 - **[Zen Browser](docs/en/browsers/zen.md)** - Firefox fork configuration
 - **[Thorium Browser](docs/en/browsers/thorium.md)** - Chromium AVX2 build

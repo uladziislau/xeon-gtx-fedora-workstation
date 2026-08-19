@@ -6,6 +6,22 @@
 
 ---
 
+## 🎯 Philosophy & Goal (Project Focus)
+
+> This project is not just a config dump. It is the **operating system built for one person** — for *me*.
+
+**The goal:** a maximally efficient, compact Fedora 44 assembled from exactly what's needed — nothing more, nothing less.
+
+- 🧭 **From black box to control** — the OS should stop being a mystery. Every piece is understood, chosen consciously, and documented.
+- 🧩 **Assembled, not installed** — pick the best-fitting building blocks (kernel, services, packages, tools), drop the rest.
+- 🗑️ **Eliminate the unnecessary** — every surplus module, daemon, package, or option that doesn't serve the intent gets removed or disabled, always with a documented way to revert.
+- ⚖️ **Efficiency over bloat** — measure, then tune: CPU, GPU, memory, boot, storage, network. If it doesn't help, it stays out.
+- 🔁 **Reproducible & documented** — any change lands in `docs/`, `configs/`, or `scripts/`, so the system can be rebuilt from scratch the same way.
+
+> **Keep the focus:** everything in this repo should serve *this* machine (Xeon E5 v3, GTX 1660 SUPER, KDE Plasma 6, Wayland, 64 GB, 165 Hz) and *this* goal — a lean, understood, personal OS.
+
+---
+
 ## 💻 Target Hardware
 
 | Component | Specification |
@@ -144,6 +160,8 @@ For optimal 36-thread performance, consider using sched-ext:
 ### Quick Links (English)
 
 - **[System Setup](docs/en/system/core-setup.md)** - Kernel, GRUB, power management
+- **[Services & Bloat Audit](docs/en/system/services-and-bloat.md)** - Daemon cleanup, crash analysis, broken services
+- **[DNF Repository Audit](docs/en/system/dnf-audit.md)** - Dead repo cleanup, dnf.conf hardening
 - **[Graphics & Display](docs/en/graphics/display.md)** - NVIDIA Wayland, HDR, fonts
 - **[Zen Browser](docs/en/browsers/zen.md)** - Firefox fork configuration
 - **[Thorium Browser](docs/en/browsers/thorium.md)** - Chromium AVX2 build
@@ -153,6 +171,8 @@ For optimal 36-thread performance, consider using sched-ext:
 ### Быстрые ссылки (Русский)
 
 - **[Системные настройки](docs/ru/system/core-setup.md)** - Ядро, GRUB, управление питанием
+- **[Аудит служб и раздутости](docs/ru/system/services-and-bloat.md)** - Очистка демонов, анализ краша, сломанные службы
+- **[Аудит DNF репозиториев](docs/ru/system/dnf-audit.md)** - Мёртвые репо, закалка dnf.conf
 - **[Графика и дисплей](docs/ru/graphics/display.md)** - NVIDIA Wayland, HDR, шрифты
 - **[Zen Browser](docs/ru/browsers/zen.md)** - Конфигурация форка Firefox
 - **[Thorium Browser](docs/ru/browsers/thorium.md)** - Сборка Chromium с AVX2
