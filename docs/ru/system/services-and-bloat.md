@@ -52,6 +52,37 @@
 
 ---
 
+## 2026-08-19 (продолжение): Дополнительные исправления служб
+
+### Повреждение конфига v4l2loopback
+**Проблема:** Пароль `41144` случайно записался в `/etc/modules-load.d/v4l2loopback.conf` и `/etc/modprobe.d/v4l2loopback.conf`, вызывая ошибки `systemd-modules-load` при загрузке.
+
+**Исправление:** Восстановлены корректные конфиги:
+```bash
+# /etc/modules-load.d/v4l2loopback.conf
+v4l2loopback
+
+# /etc/modprobe.d/v4l2loopback.conf
+options v4l2loopback devices=1 video_nr=10 card_label="Upscaled Cam" exclusive_caps=1
+```
+
+### Синтаксическая ошибка в bluetooth-ht300-connect.service
+**Проблема:** Скрипт `/usr/local/bin/connect_ht300.sh` имел некорректный `if` (нет `then`, `fi` на одной строке).
+
+**Исправление:** Скрипт переписан с правильным синтаксисом. Служба запускается и подключается успешно.
+
+### Сломанный путь в windscribe-watch.service
+**Проблема:** `ExecStart` указывал на `/home/uladzislau/Projects/agentica/tools/scripts/windscribe-manager.sh` — проект переименован в `synchronika`.
+
+**Исправление:** Путь обновлён на `/home/uladzislau/Projects/ai/synchronika/sync/scripts/windscribe-manager.sh`, переменная `AGENTICA_DIR` поправлена. Служба работает.
+
+### firewalld зона docker-forwarding
+**Проблема:** Остаточная зона firewalld от удалённого Docker вызывала `ERROR: NAME_CONFLICT` и `ERROR: INVALID_ZONE`.
+
+**Исправление:** `firewall-cmd --permanent --delete-zone=docker-forwarding && firewall-cmd --reload`. Зона удалена.
+
+---
+
 ## Как откатить
 
 Бэкапы лежат в [`scripts/backup/`](../../scripts/backup/):

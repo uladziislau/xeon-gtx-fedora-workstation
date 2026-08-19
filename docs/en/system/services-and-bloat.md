@@ -51,6 +51,37 @@ The restart storm (counters > 1970) stopped immediately after the fixes. No furt
 
 ---
 
+## 2026-08-19 (continued): Additional service fixes
+
+### v4l2loopback config corruption
+**Issue:** Password `41144` accidentally written into `/etc/modules-load.d/v4l2loopback.conf` and `/etc/modprobe.d/v4l2loopback.conf`, causing `systemd-modules-load` failures at boot.
+
+**Fix:** Restored correct configs:
+```bash
+# /etc/modules-load.d/v4l2loopback.conf
+v4l2loopback
+
+# /etc/modprobe.d/v4l2loopback.conf
+options v4l2loopback devices=1 video_nr=10 card_label="Upscaled Cam" exclusive_caps=1
+```
+
+### bluetooth-ht300-connect.service syntax error
+**Issue:** Script `/usr/local/bin/connect_ht300.sh` had malformed `if` statement (missing `then`, `fi` on same line).
+
+**Fix:** Rewrote script with proper bash syntax. Service now starts and connects successfully.
+
+### windscribe-watch.service broken path
+**Issue:** `ExecStart` pointed to `/home/uladzislau/Projects/agentica/tools/scripts/windscribe-manager.sh` — project renamed to `synchronika`.
+
+**Fix:** Updated path to `/home/uladzislau/Projects/ai/synchronika/sync/scripts/windscribe-manager.sh`, updated `AGENTICA_DIR` env. Service now running.
+
+### firewalld docker-forwarding zone
+**Issue:** Leftover firewalld zone from removed Docker installation causing `ERROR: NAME_CONFLICT` and `ERROR: INVALID_ZONE`.
+
+**Fix:** `firewall-cmd --permanent --delete-zone=docker-forwarding && firewall-cmd --reload`. Zone removed.
+
+---
+
 ## How to revert
 
 Backups live in [`scripts/backup/`](../../scripts/backup/):
