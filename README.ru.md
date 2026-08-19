@@ -162,6 +162,7 @@ LIBVA_DRIVER_NAME=nvidia
 - **[Системные настройки](docs/ru/system/core-setup.md)** - Ядро, GRUB, управление питанием
 - **[Аудит служб и раздутости](docs/ru/system/services-and-bloat.md)** - Очистка демонов, анализ краша, сломанные службы
 - **[Аудит DNF репозиториев](docs/ru/system/dnf-audit.md)** - Мёртвые репо, закалка dnf.conf
+- **[Runbook: Системный аудит](docs/ru/system/runbook.md)** - Пошаговый аудит: загрузка, службы, пакеты, GPU, KDE, безопасность
 - **[Графика и дисплей](docs/ru/graphics/display.md)** - NVIDIA Wayland, HDR, шрифты
 - **[Zen Browser](docs/ru/browsers/zen.md)** - Конфигурация форка Firefox
 - **[Thorium Browser](docs/ru/browsers/thorium.md)** - Сборка Chromium с AVX2

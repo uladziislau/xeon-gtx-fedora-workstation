@@ -162,6 +162,7 @@ For optimal 36-thread performance, consider using sched-ext:
 - **[System Setup](docs/en/system/core-setup.md)** - Kernel, GRUB, power management
 - **[Services & Bloat Audit](docs/en/system/services-and-bloat.md)** - Daemon cleanup, crash analysis, broken services
 - **[DNF Repository Audit](docs/en/system/dnf-audit.md)** - Dead repo cleanup, dnf.conf hardening
+- **[System Audit Runbook](docs/en/system/runbook.md)** - Step-by-step audit: boot, services, packages, GPU, KDE, security
 - **[Graphics & Display](docs/en/graphics/display.md)** - NVIDIA Wayland, HDR, fonts
 - **[Zen Browser](docs/en/browsers/zen.md)** - Firefox fork configuration
 - **[Thorium Browser](docs/en/browsers/thorium.md)** - Chromium AVX2 build
