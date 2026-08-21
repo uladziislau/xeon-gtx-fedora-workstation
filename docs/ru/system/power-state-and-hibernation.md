@@ -151,6 +151,31 @@ criu restore -D /srv/checkpoints/kate --shell-job
 ```
 **Даёт то, что хочет пользователь:** «продолжить с того же состояния» для приложений, независимо от системного сна.
 
+> ✅ **Проверено на этой машине** (Fedora 44): полный цикл
+> `dump → kill процесса → restore` проходит успешно.
+> Восстановленный процесс получает свой же PID, счётчик состояния продолжается
+> с сохранённой точки. Снапшот баш-скрипта: 22 файла, ~544 КБ.
+
+**Проверенный рецепт (из чистого окружения):**
+```bash
+# 1. Дамп обычного процесса (НЕ session leader) — флаг --shell-job обязателен
+pkexec criu dump -t "$PID" --shell-job -D /srv/checkpoints/demo -o dump.log
+
+# 2. Убить оригинал
+kill -9 "$PID"
+
+# 3. Restore — без этих флагов criu restore СТАНОВИТСЯ родителем процесса
+#    и блокирует терминал (не «зависание», а ожидание, обычное поведение)
+pkexec criu restore --shell-job --restore-sibling --restore-detached \
+  -D /srv/checkpoints/demo -o restore.log
+```
+- `--restore-sibling` требует `--restore-detached` (иначе error в criu/config.c).
+- `--shell-job` — только для процессов, не являющихся session leader; для
+  сессионных лидеров используйте `criu restore -D dir` без него.
+- Файлы дампа создаются root (pkexec) — при чтении нужен `pkexec chown`.
+- Дампы переживают перезагрузку, но с hostname/pid namespace они связаны
+  (для чекпоинта в контейнеры нужен `--external`).
+
 ### 5.5 Fast-boot (гибернация при выключении, Windows-стиль)
 ```text
 Вы выключаете → ядро не выключается, а «спит» на диск
