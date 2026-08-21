@@ -94,3 +94,56 @@ EOF
 - `dnf check` → нет проблем с зависимостями
 - `sudo dnf upgrade --refresh --dry-run` → проходит чисто
 - Освобождено дисковое пространство: ~2 GiB от очистки кэша
+---
+
+## Аудит «веса»: X11-стек и firewalld (проверено 2026-08-21)
+
+Вопрос: сколько занимают X11 и firewalld, и что реально можно снять.
+
+### Итог в двух словах
+
+- **«Вес» X11 на этой машине — это NVIDIA-драйвер, а не X11.** Снимать его нельзя:
+  вместе с DDX уходят `akmod-nvidia` и обе kmod сборки ядра (проверено
+  `dnf remove --assumeno`). Wayland/KDE и CUDA на GTX 1660 SUPER требуют драйвер.
+- **Реальный безопасный выигрыш маленький**: 6.4 MB `*-devel` заголовков.
+- **firewalld**: 2.2 MB диска + **~53 MB RAM** постоянно. Ни один пакет от него
+  не зависит. Это единственный заметный «вес», который убирается безопасно.
+
+### Точные цифры
+
+```text
+Всего установлено пакетов:            2755
+
+X11-стек (51 пакет, имена ^libX11|^libxcb|^xorg…)  1156 MB
+├── NVIDIA проприетарный (10 пакетов)            ~1025 MB   ← обязателен
+│     xorg-x11-drv-nvidia-cuda-libs                504 MB   (CUDA)
+│     xorg-x11-drv-nvidia-libs                     337 MB   (GLX/EGL)
+│     xorg-x11-drv-nvidia (DDX)                    173 MB
+│     xorg-x11-drv-nvidia-kmodsrc                  101 MB   (akmod-nvidia)
+│     прочее nvidia (power, xorg-libs, cuda)        ~21 MB
+├── XWayland (2.7 MB) + xwaylandvideobridge        — нужен для X11-приложений
+├── *-devel заголовки (16 шт.)                      6.4 MB   ← можно снять
+└── библиотеки (libX11, libxcb, libXtst, …)        ~15 MB  (нужны Qt/XWayland)
+
+firewalld                                            2.2 MB диска + ~53 MB RAM
+```
+
+### Выводы
+
+1. **Удаление X11 «целиком» = удаление видеодрайвера** (14 пакетов, 1 GiB) —
+   ломает ускорение/Wayland/CUDA. Не делать.
+2. **Можно безопасно снять** (если не собираете софт с X11):
+   ```bash
+   sudo dnf remove 'libX11-devel' 'libxcb-devel' 'xorg-x11-proto-devel' \
+     'libX*-devel' 'libxkbcommon*-devel'
+   ```
+   → 6.4 MB, 16 пакетов.
+3. **firewalld** — кандидат на отключение/удаление за NAT-роутером:
+   ```bash
+   sudo systemctl disable --now firewalld   # экономит ~53 MB RAM
+   # или полное удаление: sudo dnf remove firewalld
+   ```
+   Для простого десктопа правила проще держать в nftables (если вообще нужны).
+4. Если CUDA-разработка не планируется — `xorg-x11-drv-nvidia-cuda-libs`
+   (504 MB) тоже кандидат, но **только вместе с удалением всего nvidia-стека**
+   (отдельно оно не уходит из-за связки через DDX-метапакет).
