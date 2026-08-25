@@ -46,8 +46,21 @@ echo "=== Zen Browser ==="
 zen_profile=""
 for zen_dir in "$HOME/.zen" "$HOME/.local/share/zen" "$HOME/.mozilla/zen"; do
     [[ -d "$zen_dir" ]] || continue
-    zen_profile=$(find "$zen_dir" -name "user.js" 2>/dev/null | head -1) || true
+    # Prefer the active profile (Default=1) from profiles.ini instead of an arbitrary user.js
+    if [[ -f "$zen_dir/profiles.ini" ]]; then
+        while IFS='=' read -r key val; do
+            case "$key" in
+                "Path") candidate_pr="$val" ;;
+                "Default")
+                    if [[ "$val" == "1" && -n "$candidate_pr" ]] && [[ -f "$zen_dir/$candidate_pr/user.js" ]]; then
+                        zen_profile="$zen_dir/$candidate_pr/user.js"
+                    fi
+                    ;;
+            esac
+        done < <(grep -E '^\s*(Default|Path)=' "$zen_dir/profiles.ini" | sed 's/^\s*//')
+    fi
     [[ -n "$zen_profile" ]] && break
+    [[ -z "$zen_profile" ]] && zen_profile=$(find "$zen_dir" -name "user.js" 2>/dev/null | head -1) || true
 done
 [[ -n "$zen_profile" ]] && check "Zen user.js" "found at $zen_profile" || warn "Zen Browser user.js not found"
 

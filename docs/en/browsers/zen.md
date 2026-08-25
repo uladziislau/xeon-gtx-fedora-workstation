@@ -1,4 +1,4 @@
-# 🔴 Zen Browser: v21 configuration (XEON WAYLAND PERFECTED)
+# 🔴 Zen Browser: v21.1 configuration (XEON WAYLAND PERFECTED)
 
 > Zen (Firefox fork) is the **primary browser**. The profile is tuned for Wayland, proprietary NVIDIA, 165 Hz, 64 GB RAM, and a high–thread-count Xeon: WebRender, color, networking, and cache are aligned.
 
@@ -6,9 +6,17 @@
 
 ---
 
-## 1. Why a dedicated profile, and what changed in v21
+## 1. Why a dedicated profile, and what changed in v21.1
 
 Older notes suggested **disabling the GPU process** to work around driver issues. In **v21** the balance is different: the **GPU process stays on**, **driver workarounds** are enabled (`gfx.work-around-driver-bugs`), and **delegating compositing to KWin** is disabled (`gfx.webrender.compositor`) to reduce the chance of `Wayland protocol error 7: dmabufs failed` on NVIDIA. WARP remains off — CPU software rendering is not the target.
+
+**v21.1 (Aug 2026) — NVIDIA hardware video decode actually engages.** Firefox blocklists VA-API on NVIDIA even when `libva` works; two `user.js` lines were flipped so `about:support` now reports `HWDEC` for H.264/VP8/VP9/HEVC:
+
+* `media.hardware-video-decoding.force-enabled` → **`true`** (bypasses the NVIDIA VA-API blocklist; the old `false` line in `user.js` kept overriding `about:config` edits on every start).
+* `media.rdd-vpx.enabled` → **`true`** (keeps VP8/VP9 in the RDD process, which is the path the VA-API decoder uses; `false` forced software decode into the page process).
+* **Session env** (`~/.config/environment.d/99-zen-nvidia.conf`) now exports `LIBVA_DRIVER_NAME=nvidia` and `NVD_BACKEND=direct` so launcher-menu starts also get NVDEC — not just terminal launches that passed them by hand.
+
+Verification: `about:support → codecSupportInfo` shows `HWDEC` for H264/VP9/VP8/HEVC, and `nvidia-smi pmon` shows the `dec` column filling during playback.
 
 High-level blocks:
 

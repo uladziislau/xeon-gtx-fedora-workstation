@@ -49,7 +49,7 @@ The configuration includes:
 
 ## 🔷 Thorium Browser Configuration
 
-Thorium uses **command-line flags**, not a `user.js`. The repository ships a flag list aligned with the same goals as Zen v21 (Wayland, VP9 over AV1, VA-API, ANGLE). **v22** adds partial-raster off, safe video frames, VA-API driver checks bypass, renderer cap, and tmpfs caches for 64 GB RAM.
+Thorium uses **command-line flags**, not a `user.js`. The repository ships a flag list aligned with the same goals as Zen v21.1 (Wayland, VP9 over AV1, VA-API, ANGLE). **v22** added partial-raster off, safe video frames, VA-API driver checks bypass, renderer cap, and tmpfs caches for 64 GB RAM; **v23 (Aug 2026)** fixed the cache sizes to INT32-safe values (1.5 GB/1 GB — the old 16/8 GB were silently ignored), kept `WaylandOverlayDelegation`, and dropped `SkiaGraphite` (no-op without Vulkan on ANGLE-GL).
 
 ### Files
 
