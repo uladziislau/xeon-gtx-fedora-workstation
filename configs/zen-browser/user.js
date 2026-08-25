@@ -110,8 +110,8 @@ user_pref("webgl.out-of-process", true);
 // VA-API path so Linux can feed NVDEC on NVIDIA.
 user_pref("media.ffmpeg.vaapi.enabled", true);
 
-// Do not force codecs; let the stack negotiate what NVDEC can decode.
-user_pref("media.hardware-video-decoding.force-enabled", false);
+// NVIDIA: Firefox blocklists VA-API on NVIDIA by default; force re-enables hw decode.
+user_pref("media.hardware-video-decoding.force-enabled", true);
 
 // 0 = safe copyback to RAM; avoids proprietary-driver segfaults on zero-copy paths.
 user_pref("media.ffmpeg.vaapi.force-surface-zero-copy", 0);
@@ -123,7 +123,8 @@ user_pref("media.rdd-ffmpeg.enabled", true);
 
 // Relax RDD sandbox so the NVIDIA driver can reach devices like /dev/dri/renderD128.
 user_pref("security.sandbox.rdd.level", 0);
-user_pref("media.rdd-vpx.enabled", false);
+// VP8/VP9 (incl. VP9 hw via VA-API) must stay in RDD process, else falls back to software.
+user_pref("media.rdd-vpx.enabled", true);
 
 //[MAIN GTX 1660 SUPER NOTE]: No AV1 HW decode — disable AV1 so YouTube serves VP9 (full HW path).
 user_pref("media.av1.enabled", false);

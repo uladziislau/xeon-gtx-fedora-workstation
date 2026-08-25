@@ -110,8 +110,8 @@ user_pref("webgl.out-of-process", true);
 // Включает транслятор VA-API, который позволяет Linux отправлять видеопоток в блок раскодирования (NVDEC) вашей видеокарты NVIDIA.
 user_pref("media.ffmpeg.vaapi.enabled", true);         
 
-// Значение 'false' отключает агрессивное форсирование кодеков, позволяя системе самой договориться с видеокартой о том, что она умеет декодировать.
-user_pref("media.hardware-video-decoding.force-enabled", false); 
+// Значение 'true' принудительно включает аппаратное декодирование для NVIDIA (Firefox по умолчанию блокирует VA-API на этой видеокарте).
+user_pref("media.hardware-video-decoding.force-enabled", true); 
 
 // Значение '0' спасает проприетарный драйвер NVIDIA от "Segmentation Fault", заставляя безопасно копировать готовые кадры видео из видеокарты обратно в системную RAM.
 user_pref("media.ffmpeg.vaapi.force-surface-zero-copy", 0); 
@@ -123,7 +123,8 @@ user_pref("media.rdd-ffmpeg.enabled", true);
 
 // Убирает песочницу (изоляцию) процесса RDD, чтобы драйвер NVIDIA мог получить доступ к системным устройствам (например, /dev/dri/renderD128).
 user_pref("security.sandbox.rdd.level", 0);            
-user_pref("media.rdd-vpx.enabled", false);             
+// VP8/VP9 (включая аппаратное VP9 через VA-API) должны оставаться в процессе RDD, иначе — софт-декод на Xeon.
+user_pref("media.rdd-vpx.enabled", true);             
 
 //[ГЛАВНЫЙ ФИКС ДЛЯ GTX 1660 SUPER]: Эта видеокарта не поддерживает аппаратное декодирование AV1. 
 // Значение 'false' сообщает об этом YouTube, заставляя его отдавать видео в кодеке VP9, который аппаратно поддерживается на 100%.
