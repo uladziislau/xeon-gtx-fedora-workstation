@@ -115,6 +115,14 @@ systemctl --user mask plasma-startupsound.service
 
 # windscribe-tray — if not using GUI
 systemctl --user mask app-windscribe\x2dtray@autostart.service
+
+# Handy (transcription) Insert hotkey does not register at boot
+# Root cause: handy uses enigo/X11 for global hotkeys, but systemd-xdg-autostart-generator
+# starts the unit before KDE imports DISPLAY into the user manager → "DisplayParsingError(DisplayNotSet)".
+# Fix (committed to configs/handy/systemd/10-wait-x11.conf):
+systemctl --user daemon-reload  # after placing drop-in
+# Drop-in: ~/.config/systemd/user/app-Handy@autostart.service.d/10-wait-x11.conf
+#   waits for /tmp/.X11-unix/X0 and sets DISPLAY=:0, WAYLAND_DISPLAY=wayland-0
 ```
 
 #### ↩️ Rollback

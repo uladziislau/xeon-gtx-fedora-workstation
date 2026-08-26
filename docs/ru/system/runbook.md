@@ -115,6 +115,14 @@ systemctl --user mask plasma-startupsound.service
 
 # windscribe-tray — если не пользуешься GUI
 systemctl --user mask app-windscribe\x2dtray@autostart.service
+
+# Handy (транскрипция): хоткей Insert не вставал при загрузке
+# Причина: handy использует enigo/X11 для глобальных хоткеев, а systemd-xdg-autostart-generator
+# стартует юнит раньше, чем KDE импортирует DISPLAY в user-менеджер → "DisplayParsingError(DisplayNotSet)".
+# Фикс (в configs/handy/systemd/10-wait-x11.conf):
+systemctl --user daemon-reload  # после размещения drop-in
+# Drop-in: ~/.config/systemd/user/app-Handy@autostart.service.d/10-wait-x11.conf
+#   ждёт /tmp/.X11-unix/X0 и задаёт DISPLAY=:0, WAYLAND_DISPLAY=wayland-0
 ```
 
 #### ↩️ Откат
