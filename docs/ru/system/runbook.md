@@ -123,6 +123,10 @@ systemctl --user mask app-windscribe\x2dtray@autostart.service
 systemctl --user daemon-reload  # после размещения drop-in
 # Drop-in: ~/.config/systemd/user/app-Handy@autostart.service.d/10-wait-x11.conf
 #   ждёт /tmp/.X11-unix/X0 и задаёт DISPLAY=:0, WAYLAND_DISPLAY=wayland-0
+
+# ✅ Проверка после перезагрузки:
+PID=$(pgrep -x handy | head -1) && tr '\0' '\n' < "/proc/$PID/environ" | grep ^DISPLAY=
+tail -6 ~/.local/share/com.pais.handy/logs/handy.log   # ждём "Enigo initialized successfully", без DisplayNotSet
 ```
 
 #### ↩️ Откат
