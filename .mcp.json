@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "browse": {
+      "type": "stdio",
+      "command": "/home/uladzislau/.local/bin/browse",
+      "args": [
+        "mcp"
+      ]
+    },
+    "instrumentariy": {
+      "type": "http",
+      "url": "http://127.0.0.1:3100/mcp"
+    }
+  }
+}
