@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 2,
+  "project": "xeon-gtx-fedora-workstation",
+  "remote": "uladziislau/xeon-gtx-fedora-workstation",
+  "class": "tool",
+  "lifecycle": "active",
+  "stateSource": {
+    "type": "backlog",
+    "path": "data/modules/development/tasks.development.json"
+  },
+  "adapter": {
+    "type": "data-only"
+  }
+}
